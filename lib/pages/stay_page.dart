@@ -5,13 +5,98 @@ class StayPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hotels & Stays'),
-        backgroundColor: const Color(0xFFefa355),
+       appBar: AppBar(
+        title: const Text('Explore Drivers'),
+        backgroundColor: const Color(0xFFefa355), 
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            
+            Scaffold.of(context).openDrawer();
+          },
+        ),
       ),
-      body: const Center(
-        child: Text('Stay Page Content'),
+      body: Column(
+        children: [
+          // 1. Search Bar
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search by name or location',
+                prefixIcon: const Icon(Icons.search),
+                filled: true,
+                fillColor: Colors.grey[200],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+
+
+
+          // 2. List 
+          Expanded(
+            child: ListView.builder(
+              itemCount: 1,
+              itemBuilder: (context, index) {
+                return _buildDriverCard(context);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Helper widget to build 
+  Widget _buildDriverCard(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'The Kayon Resort',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: const [
+                      Icon(Icons.star, color: Colors.amber, size: 16),
+                      Text('4.9 (120 reviews)'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFF6B9D),
+                foregroundColor: Colors.black,
+              ),
+              child: const Text('View'),
+            ),
+          ],
+        ),
       ),
     );
   }

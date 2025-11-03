@@ -5,7 +5,7 @@ class DriverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // The Scaffold is removed. This widget is now just the page content.
+    
     return Scaffold(
        appBar: AppBar(
         title: const Text('Explore Drivers'),
@@ -13,7 +13,7 @@ class DriverPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {
-            // This will now correctly find the drawer in MainPage
+            
             Scaffold.of(context).openDrawer();
           },
         ),
@@ -87,7 +87,8 @@ class DriverPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFfe7c67),
+                backgroundColor: const Color(0xFFFF6B9D),
+                foregroundColor: Colors.black,
               ),
               child: const Text('View'),
             ),
