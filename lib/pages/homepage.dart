@@ -5,8 +5,9 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // The Scaffold and BottomNavBar are removed. This is just the page content.
     return Scaffold(
+
+      // The drawer for navigation
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -15,7 +16,8 @@ class Homepage extends StatelessWidget {
               accountName: Text("Your Name"),
               accountEmail: Text("your.email@example.com"),
               currentAccountPicture: CircleAvatar(
-                child: Text("Y"),
+                backgroundColor: Colors.white,
+                child: Text("Y", style: TextStyle(fontSize: 40.0, color: Color(0xFF009688))),
               ),
               decoration: BoxDecoration(color: Color(0xFF009688)),
             ),
@@ -32,6 +34,13 @@ class Homepage extends StatelessWidget {
           ],
         ),
       ),
+      
+      
+      
+      
+      
+      
+      //using sliver for scrollable appbar
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -51,27 +60,152 @@ class Homepage extends StatelessWidget {
               ),
             ),
             backgroundColor: const Color(0xFF009688),
-            expandedHeight: 100.0,
+            expandedHeight: 180.0, 
             pinned: true,
             floating: true,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                'assets/images/SheRoam_background.webp',
+                'assets/images/SheRoam_background.webp', 
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.3),
                 colorBlendMode: BlendMode.darken,
               ),
             ),
           ),
+
+
+
+
+
+
+
+
+          // This Sliver contains the main page content
           SliverToBoxAdapter(
-            child: SizedBox(
-              height: 500,
-              child: Center(
-                child: Text('This is the Homepage'),
+            child: Container(
+              color: Colors.white,
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'SheRoams',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Explore Bali',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.amber[600],
+                          shape: BoxShape.circle,
+                        ),
+                        child: IconButton(
+                          icon: const Icon(Icons.add, color: Colors.white),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+
+
+
+
+
+                  // Search Bar to be implemented
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search',
+                      prefixIcon: const Icon(Icons.search),
+                      filled: true,
+                      fillColor: Colors.grey[200],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+
+
+
+
+
+                  // Category List
+                  _buildCategoryItem(
+                    context,
+                    icon: Icons.fort, // Placeholder icon
+                    title: 'Temples & Heritage',
+                    subtitle: 'Sacred temples, palaces, and historical landmarks.',
+                  ),
+                  _buildCategoryItem(
+                    context,
+                    icon: Icons.celebration, // Placeholder icon
+                    title: 'Festivals & Ceremonies',
+                    subtitle: 'Balinese holy days and cultural celebrations.',
+                  ),
+                  _buildCategoryItem(
+                    context,
+                    icon: Icons.palette, // Placeholder icon
+                    title: 'Traditional Arts',
+                    subtitle: 'Batik, gamelan, painting, dance, and carving.',
+                  ),
+                   _buildCategoryItem(
+                    context,
+                    icon: Icons.holiday_village, // Placeholder icon
+                    title: 'Local Villages',
+                    subtitle: 'Visits to traditional Balinese villages.',
+                  ),
+                   _buildCategoryItem(
+                    context,
+                    icon: Icons.store, // Placeholder icon
+                    title: 'Markets & Crafts',
+                    subtitle: 'Handicraft and art markets.',
+                  ),
+                ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  // Helper widget for creating a category list item
+  Widget _buildCategoryItem(BuildContext context, {required IconData icon, required String title, required String subtitle}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Icon(icon, color: Colors.grey[800], size: 28),
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        subtitle: Text(subtitle, style: TextStyle(color: Colors.grey[600])),
+        trailing: IconButton(
+          icon: const Icon(Icons.more_horiz),
+          onPressed: () {},
+        ),
+        onTap: () {},
       ),
     );
   }
