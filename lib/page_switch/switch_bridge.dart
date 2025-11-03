@@ -3,7 +3,7 @@ import 'package:she_roams_bali/components/bot_navbar.dart';
 import 'package:she_roams_bali/pages/Homepage.dart';
 import 'package:she_roams_bali/pages/driver_page.dart';
 import 'package:she_roams_bali/pages/food_page.dart';
-
+import 'package:she_roams_bali/pages/stay_page.dart'; 
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -15,14 +15,14 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  // List of pages to be displayed
+
   final List<Widget> _pages = [
     const Homepage(),
-    const RidesPage(),
+    const DriverPage(),
+    const StayPage(), 
     const FoodPage(),
   ];
 
-  // Callback function for the bottom nav bar
   void _onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -32,7 +32,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Use IndexedStack to keep the state of each page alive
       body: IndexedStack(
         index: _currentIndex,
         children: _pages,

@@ -59,8 +59,8 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            backgroundColor: const Color(0xFF009688),
-            expandedHeight: 180.0, 
+            backgroundColor: const Color(0xFFefa355),
+            expandedHeight: 160.0, 
             pinned: true,
             floating: true,
             flexibleSpace: FlexibleSpaceBar(
@@ -174,6 +174,10 @@ class Homepage extends StatelessWidget {
                     title: 'Markets & Crafts',
                     subtitle: 'Handicraft and art markets.',
                   ),
+                  _buildCategoryItem(context,
+                   icon: Icons.group, 
+                   title: 'Cultural Etiquette', 
+                   subtitle: 'How to dress and behave respectfully.')
                 ],
               ),
             ),

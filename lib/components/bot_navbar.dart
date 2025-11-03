@@ -29,26 +29,31 @@ class BottomNavBar extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
             child: GNav(
-              rippleColor: const Color(0xFF4DB6AC),
-              hoverColor: const Color(0xFF80CBC4),
-              gap: 8,
+              rippleColor: const Color(0xFFfe7c67),
+              hoverColor: const Color(0xFFffac83),
+              gap: 6, 
               activeColor: Colors.white,
               iconSize: 24,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOutCubic,
-              tabBackgroundColor: const Color(0xFF009688),
+              tabBackgroundColor: const Color(0xFFefa355),
               color: Colors.grey,
               tabs: const [
                 GButton(
                   icon: Icons.dashboard,
-                  text: 'HOMEPAGE',
+                  text: 'HOME', 
                 ),
                 GButton(
                   icon: CupertinoIcons.car_detailed,
-                  text: 'RIDES',
+                  text: 'RIDE',
+                ),
+                GButton(
+                  icon: CupertinoIcons.house_alt_fill,
+                  text: 'STAY',
                 ),
                 GButton(
                   icon: Icons.food_bank,
