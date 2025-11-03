@@ -56,7 +56,7 @@ class BottomNavBar extends StatelessWidget {
                   text: 'STAY',
                 ),
                 GButton(
-                  icon: Icons.food_bank,
+                  icon: Icons.lunch_dining,
                   text: 'FOOD',
                 ),
               ],

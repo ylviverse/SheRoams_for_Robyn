@@ -5,14 +5,94 @@ class DriverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // No Scaffold or BottomNavBar needed here either
+    // The Scaffold is removed. This widget is now just the page content.
     return Scaffold(
-      appBar: AppBar(
+       appBar: AppBar(
         title: const Text('Explore Drivers'),
-        backgroundColor: const Color(0xFFefa355),
+        backgroundColor: const Color(0xFFefa355), 
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            // This will now correctly find the drawer in MainPage
+            Scaffold.of(context).openDrawer();
+          },
+        ),
       ),
-      body: const Center(
-        child: Text('Drive Page Content'),
+      body: Column(
+        children: [
+          // 1. Search Bar
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search by name or location',
+                prefixIcon: const Icon(Icons.search),
+                filled: true,
+                fillColor: Colors.grey[200],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ),
+          // 2. List of Drivers
+          Expanded(
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return _buildDriverCard(context);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Helper widget to build a driver card
+  Widget _buildDriverCard(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Nyoman Women Tours',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: const [
+                      Icon(Icons.star, color: Colors.amber, size: 16),
+                      Text('4.9 (120 reviews)'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFfe7c67),
+              ),
+              child: const Text('View'),
+            ),
+          ],
+        ),
       ),
     );
   }

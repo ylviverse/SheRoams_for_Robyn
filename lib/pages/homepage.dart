@@ -7,6 +7,8 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
+
+      
       // The drawer for navigation
       drawer: Drawer(
         child: ListView(
@@ -34,8 +36,6 @@ class Homepage extends StatelessWidget {
           ],
         ),
       ),
-      
-      
       
       
       
@@ -146,31 +146,31 @@ class Homepage extends StatelessWidget {
                   // Category List
                   _buildCategoryItem(
                     context,
-                    icon: Icons.fort, // Placeholder icon
+                    icon: Icons.fort, 
                     title: 'Temples & Heritage',
                     subtitle: 'Sacred temples, palaces, and historical landmarks.',
                   ),
                   _buildCategoryItem(
                     context,
-                    icon: Icons.celebration, // Placeholder icon
+                    icon: Icons.celebration, 
                     title: 'Festivals & Ceremonies',
                     subtitle: 'Balinese holy days and cultural celebrations.',
                   ),
                   _buildCategoryItem(
                     context,
-                    icon: Icons.palette, // Placeholder icon
+                    icon: Icons.palette, 
                     title: 'Traditional Arts',
                     subtitle: 'Batik, gamelan, painting, dance, and carving.',
                   ),
                    _buildCategoryItem(
                     context,
-                    icon: Icons.holiday_village, // Placeholder icon
+                    icon: Icons.holiday_village, 
                     title: 'Local Villages',
                     subtitle: 'Visits to traditional Balinese villages.',
                   ),
                    _buildCategoryItem(
                     context,
-                    icon: Icons.store, // Placeholder icon
+                    icon: Icons.store, 
                     title: 'Markets & Crafts',
                     subtitle: 'Handicraft and art markets.',
                   ),
