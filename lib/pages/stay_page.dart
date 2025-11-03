@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:she_roams_bali/components/drawer.dart';
 
 class StayPage extends StatelessWidget {
   const StayPage({super.key});
@@ -7,16 +8,11 @@ class StayPage extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Scaffold(
+      drawer: const AppDrawer(),
        appBar: AppBar(
         title: const Text('Explore Drivers'),
         backgroundColor: const Color(0xFFefa355), 
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            
-            Scaffold.of(context).openDrawer();
-          },
-        ),
+        
       ),
       body: Column(
         children: [
