@@ -10,7 +10,7 @@ class StayPage extends StatelessWidget {
     return Scaffold(
       drawer: const AppDrawer(),
        appBar: AppBar(
-        title: const Text('Explore Drivers'),
+        title: const Text('Explore Places to Stay'),
         backgroundColor: const Color(0xFFefa355), 
         
       ),
