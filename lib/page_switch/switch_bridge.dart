@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:she_roams_bali/components/bot_navbar.dart';
-import 'package:she_roams_bali/pages/Homepage.dart';
+import 'package:she_roams_bali/pages/home_page.dart';
 import 'package:she_roams_bali/pages/driver_page.dart';
 import 'package:she_roams_bali/pages/food_page.dart';
 import 'package:she_roams_bali/pages/stay_page.dart'; 

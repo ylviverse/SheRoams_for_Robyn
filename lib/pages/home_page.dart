@@ -8,7 +8,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-
+      //call the drawer component
       drawer: const AppDrawer(),
       
       
@@ -25,7 +25,7 @@ class Homepage extends StatelessWidget {
                   onTap: () => Scaffold.of(context).openDrawer(),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.2),
+                      color: Colors.black.withValues(alpha: 0.2),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(Icons.menu, color: Colors.white),
@@ -41,7 +41,7 @@ class Homepage extends StatelessWidget {
               background: Image.asset(
                 'assets/images/SheRoam_background.webp', 
                 fit: BoxFit.cover,
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 colorBlendMode: BlendMode.darken,
               ),
             ),
@@ -54,10 +54,10 @@ class Homepage extends StatelessWidget {
 
 
 
-          // This Sliver contains the main page content
+          //this is the body content , the whole page is inside this container so changes are here
           SliverToBoxAdapter(
             child: Container(
-              color: Colors.white,
+              color: Colors.transparent,
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +98,7 @@ class Homepage extends StatelessWidget {
 
 
 
-                  // Search Bar to be implemented
+                  // Search Bar to be implemented, to be connected to a search function
                   TextField(
                     decoration: InputDecoration(
                       hintText: 'Search',
@@ -161,7 +161,24 @@ class Homepage extends StatelessWidget {
     );
   }
 
- // ...TESTTTTT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // ...TESTTTTT and PLACEHOLDERS POP_UP till UI is DONE
 
   // Helper widget for creating a category list item
   Widget _buildCategoryItem(BuildContext context, {required IconData icon, required String title, required String subtitle}) {
@@ -246,7 +263,7 @@ class Homepage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return ListTile(
                         leading: CircleAvatar(
-                          backgroundColor: const Color(0xFFefa355).withOpacity(0.2),
+                          backgroundColor: const Color(0xFFefa355).withValues(alpha: 0.2),
                           child: Text(
                             '${index + 1}',
                             style: const TextStyle(
