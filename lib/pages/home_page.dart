@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:she_roams_bali/components/drawer.dart';
+import 'package:flutter/cupertino.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -63,32 +64,28 @@ class Homepage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'SheRoams',
+                    'Guide to',
                     style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.grey,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
                         'Explore Bali',
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 28,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF7A5A5),
-                          shape: BoxShape.circle,
-                        ),
-                        child: IconButton(
-                          icon: const Icon(Icons.add, color: Colors.white),
-                          onPressed: () {},
-                        ),
+                      IconButton(
+                        icon: const Icon(CupertinoIcons.search, color: Colors.black),
+                        onPressed: () {
+                          // Add your search action here
+                        },
                       ),
                     ],
                   ),
@@ -99,66 +96,103 @@ class Homepage extends StatelessWidget {
 
 
                   // Search Bar to be implemented, to be connected to a search function
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Search',
-                      prefixIcon: const Icon(Icons.search),
-                      filled: true,
-                      fillColor: Colors.grey[200],
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 15),
+                  // TextField(
+                  //   decoration: InputDecoration(
+                  //     hintText: 'Search',
+                  //     prefixIcon: const Icon(Icons.search),
+                  //     filled: true,
+                  //     fillColor: Colors.grey[200],
+                  //     border: OutlineInputBorder(
+                  //       borderRadius: BorderRadius.circular(12),
+                  //       borderSide: BorderSide.none,
+                  //     ),
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 15),
 
 
 
 
 
                   // Category List
-                  _buildCategoryItem(
-                    context,
-                    icon: Icons.fort, 
-                    title: 'Temples & Heritage',
-                    subtitle: 'Sacred temples, palaces, and historical landmarks.',
-                  ),
-                  _buildCategoryItem(
-                    context,
-                    icon: Icons.celebration, 
-                    title: 'Festivals & Ceremonies',
-                    subtitle: 'Balinese holy days and cultural celebrations.',
-                  ),
+
+                  _buildCategoryItem(context, 
+                  icon: Icons.place, 
+                  title: 'Popular Areas', 
+                  subtitle: 'Areas to explore in Bali'),
+
+                  _buildCategoryItem(context, 
+                  icon: Icons.wb_sunny, 
+                  title: 'Weather & Seasons', 
+                  subtitle: "When's the best time to visit Bali" ),
+
+                  _buildCategoryItem(context,
+                  icon: Icons.airplane_ticket, 
+                  title: 'Visa & Entry Requirements', 
+                  subtitle: 'Accepted visas and entry rules' ),
+
+                  _buildCategoryItem(context, 
+                  icon: CupertinoIcons.creditcard_fill, 
+                  title: 'Money & ATMs', 
+                  subtitle: 'Using local currency and finding ATMs' ),
+
+                  _buildCategoryItem(context, 
+                  icon: Icons.sim_card_alert_sharp, 
+                  title: 'Sim Card & Internet', 
+                  subtitle: 'Guideline for accessing network and internet within Bali' ),
+
+                
                   _buildCategoryItem(
                     context,
                     icon: Icons.palette, 
-                    title: 'Traditional Arts',
+                    title: 'Culture & Heritage',
                     subtitle: 'Batik, gamelan, painting, dance, and carving.',
                   ),
-                   _buildCategoryItem(
-                    context,
-                    icon: Icons.holiday_village, 
-                    title: 'Local Villages',
-                    subtitle: 'Visits to traditional Balinese villages.',
-                  ),
-                   _buildCategoryItem(
-                    context,
-                    icon: Icons.store, 
-                    title: 'Markets & Crafts',
-                    subtitle: 'Handicraft and art markets.',
-                  ),
+                 
+               
+            
                   _buildCategoryItem(context,
                    icon: Icons.group, 
                    title: 'Cultural Etiquette', 
-                   subtitle: 'How to dress and behave respectfully.')
+                   subtitle: 'How to dress and behave respectfully.'),
+
+                  
+
+                  _buildCategoryItem(context, 
+                  icon: CupertinoIcons.airplane, 
+                  title: 'Travel Protection', 
+                  subtitle: 'Importance of travel & health insurance' ),
+
+
+                  
                 ],
               ),
             ),
           ),
         ],
       ),
+
+
+
+      // Floating Action Button
+      floatingActionButton: FloatingActionButton(
+        elevation: 1,
+        onPressed: () {
+          // Action when FAB is pressed
+          
+        },
+        backgroundColor: const Color(0xFFF7A5A5),
+        child: const Icon(CupertinoIcons.placemark, color: Color(0xFF1A2A4F)),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      
+
+
+
+
+
     );
+  }
   }
 
 
@@ -355,4 +389,3 @@ class Homepage extends StatelessWidget {
         return ['No items available'];
     }
   }
-}
