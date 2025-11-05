@@ -33,7 +33,7 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            backgroundColor: const Color(0xFFefa355),
+            backgroundColor: const Color(0xFFF7A5A5),
             expandedHeight: 160.0, 
             pinned: true,
             floating: true,
@@ -82,7 +82,7 @@ class Homepage extends StatelessWidget {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.amber[600],
+                          color: Color(0xFFF7A5A5),
                           shape: BoxShape.circle,
                         ),
                         child: IconButton(

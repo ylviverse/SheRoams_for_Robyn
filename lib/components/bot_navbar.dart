@@ -34,13 +34,13 @@ class BottomNavBar extends StatelessWidget {
               rippleColor: const Color(0xFFfe7c67),
               hoverColor: const Color(0xFFffac83),
               gap: 6, 
-              activeColor: Colors.white,
+              activeColor: Color(0xFF1A2A4F),
               iconSize: 24,
               
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOutCubic,
-              tabBackgroundColor: const Color(0xFFefa355),
+              tabBackgroundColor: const Color(0xFFF7A5A5),
               color: Colors.grey,
               tabs: const [
                 GButton(

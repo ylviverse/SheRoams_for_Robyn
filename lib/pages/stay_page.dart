@@ -11,7 +11,7 @@ class StayPage extends StatelessWidget {
       drawer: const AppDrawer(),
        appBar: AppBar(
         title: const Text('Explore Places to Stay'),
-        backgroundColor: const Color(0xFFefa355), 
+        backgroundColor: const Color(0xFFF7A5A5), 
         
       ),
       body: Column(
@@ -53,7 +53,7 @@ class StayPage extends StatelessWidget {
   Widget _buildDriverCard(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      elevation: 3,
+      elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),

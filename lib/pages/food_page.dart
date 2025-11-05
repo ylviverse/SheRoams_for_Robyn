@@ -11,11 +11,20 @@ class FoodPage extends StatelessWidget {
        drawer: const AppDrawer(),
        appBar: AppBar(
         title: const Text('Explore Places to Eat'),
-        backgroundColor: const Color(0xFFefa355), 
+        backgroundColor: const Color(0xFFF7A5A5), 
         
       ),
       body: Column(
         children: [
+
+
+
+// to be rebuild once there is data and backend integration
+
+
+
+
+
           // 1. Search Bar
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -35,7 +44,8 @@ class FoodPage extends StatelessWidget {
 
 
 
-          // 2. List 
+
+          // 2. List indexing and temporary data
           Expanded(
             child: ListView.builder(
               itemCount: 3,
@@ -49,18 +59,20 @@ class FoodPage extends StatelessWidget {
     );
   }
 
+
+
   // Helper widget to build 
   Widget _buildDriverCard(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      elevation: 3,
+      elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
             
-            const SizedBox(width: 16),
+            const SizedBox(width: 10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +101,8 @@ class FoodPage extends StatelessWidget {
                 backgroundColor: const Color(0xFFFF6B9D),
                 foregroundColor: Colors.black,
               ),
-              child: const Text('View'),
+              child: 
+              const Text('View'),
             ),
           ],
         ),

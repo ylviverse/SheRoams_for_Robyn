@@ -14,9 +14,9 @@ class AppDrawer extends StatelessWidget {
             accountEmail: Text("your.email@example.com"),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
-              child: Text("Y", style: TextStyle(fontSize: 40.0, color: Color(0xFF009688))),
+              child: Text("Y", style: TextStyle(fontSize: 40.0, color: Color(0xFF1A2A4F))),
             ),
-            decoration: BoxDecoration(color: Color(0xFF009688)),
+            decoration: BoxDecoration(color: Color(0xFFF7A5A5)),
           ),
           ListTile(
             leading: const Icon(Icons.account_circle),
