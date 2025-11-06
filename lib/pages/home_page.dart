@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:she_roams_bali/components/drawer.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel_pkg;
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+
+    final List<String> carouselImages = [
+
+      'assets/slider/1.png',  
+      
+      'assets/slider/3.png',
+
+      'assets/slider/2.png',
+    ];
+
     return Scaffold(
+
+
+      
 
       //call the drawer component
       drawer: const AppDrawer(),
@@ -15,7 +30,7 @@ class Homepage extends StatelessWidget {
       
       
       
-      //using sliver for scrollable appbar
+      //using sliver for scrollable appbar through carousel package
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -34,16 +49,37 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            backgroundColor: const Color(0xFFF7A5A5),
-            expandedHeight: 160.0, 
+            backgroundColor:  Color(0xFFF7A5A5),
+            expandedHeight: 180.0,
             pinned: true,
             floating: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/images/SheRoam_background.webp', 
-                fit: BoxFit.cover,
-                color: Colors.black.withValues(alpha: 0.3),
-                colorBlendMode: BlendMode.darken,
+              background: carousel_pkg.CarouselSlider(
+                options: carousel_pkg.CarouselOptions(
+                  height: double.infinity,
+                  viewportFraction: 1.0,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 4),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: false,
+                ),
+                items: carouselImages.map((imagePath) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(imagePath),
+                            fit: BoxFit.cover,
+                            
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
               ),
             ),
           ),
@@ -64,7 +100,7 @@ class Homepage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Guide to',
+                    'Plan Like a Goddess',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.grey,
@@ -182,7 +218,7 @@ class Homepage extends StatelessWidget {
           
         },
         backgroundColor: const Color(0xFFF7A5A5),
-        child: const Icon(CupertinoIcons.placemark, color: Color(0xFF1A2A4F)),
+        child: const Icon(CupertinoIcons.chat_bubble, color: Color(0xFF1A2A4F)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       
