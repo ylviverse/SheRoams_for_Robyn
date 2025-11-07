@@ -173,7 +173,7 @@ class _PopularAresState extends State<PopularAres> {
   }) {
     return GestureDetector(
       onTap: () {
-        // TODO: Navigate to area detail page
+        
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Viewing details for $title'),
