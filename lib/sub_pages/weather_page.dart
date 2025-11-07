@@ -7,8 +7,13 @@ class WeatherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF9F8F6),
       appBar: AppBar(
-        backgroundColor: Colors.grey[400],
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        title: Text('Weather Overview', style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black),),
+        backgroundColor: Color(0xFFF9F8F6),
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back, color: Colors.black,),
           onPressed: () => Navigator.pop(context),
@@ -132,19 +137,19 @@ class WeatherPage extends StatelessWidget {
             context,
             icon: Icons.wb_sunny,
             title: 'Best Season to Visit',
-            subtitle: 'April - October: Best weather for beach & outdoor activities',
+            //subtitle: 'April - October: Best weather for beach & outdoor activities',
           ),
           _buildCategoryItem(
             context,
             icon: Icons.cloud,
             title: 'Temperature by Region',
-            subtitle: 'Check for temperature by Region',
+            //subtitle: 'Check for temperature by Region',
           ),
           _buildCategoryItem(
             context,
-            icon: Icons.woman,
+            icon: Icons.checkroom_sharp,
             title: 'What to Pack',
-            subtitle: 'Year-round tropical climate: 26°C - 32°C',
+            //subtitle: 'Year-round tropical climate: 26°C - 32°C',
           ),
         ],
       ),
@@ -184,7 +189,7 @@ class WeatherPage extends StatelessWidget {
     BuildContext context, {
     required IconData icon,
     required String title,
-    required String subtitle,
+    //required String subtitle,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -201,7 +206,7 @@ class WeatherPage extends StatelessWidget {
           title,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
-        subtitle: Text(subtitle, style: TextStyle(color: Colors.grey[600])),
+        //subtitle: Text(subtitle, style: TextStyle(color: Colors.grey[600])),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
         onTap: () {
           ScaffoldMessenger.of(context).showSnackBar(

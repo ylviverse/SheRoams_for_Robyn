@@ -69,11 +69,15 @@ class _PopularAresState extends State<PopularAres> {
     final currentAreas = selectedTab == 'Recommended' ? recommendedAreas : nearbyAreas;
 
     return Scaffold(
+      backgroundColor: Color(0xFFF9F8F6),
       appBar: AppBar(
-        
-        backgroundColor: const Color(0xFFF7A5A5),
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        title: Text('Popular Areas', style: TextStyle(fontWeight: FontWeight.w500,color:  Colors.black),),
+        backgroundColor:  Color(0xFFF9F8F6),//(0xFFF7A5A5),
         leading: IconButton(
-          icon: const Icon(CupertinoIcons.back, color: Colors.white,),
+          icon: const Icon(CupertinoIcons.back, color: Colors.black,),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -141,7 +145,7 @@ class _PopularAresState extends State<PopularAres> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFF7A5A5) : Colors.grey[200],
+          color: isSelected ? const Color(0xFFefa355) : Colors.transparent,//grey[200],
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: isSelected ? const Color(0xFFefa355) : Colors.grey.shade300,
