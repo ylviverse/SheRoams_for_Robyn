@@ -27,8 +27,24 @@ class _PopularAresState extends State<PopularAres> {
       'subtitle': 'Surf Scene, Trendy Cafes, Yoga Studios',
       'image': 'assets/areas/canggu.jpg',
     },
+    {
+      'title': 'Uluwatu',
+      'subtitle': 'Clifftop views, Surf Spots, Luxury Villas',
+      'image': 'assets/areas/uluwatu.jpg',
+    },
+    {
+      'title': 'Sanur',
+      'subtitle': 'Calm beaches and relaxation',
+      'image': 'assets/areas/sanur.jpg',
+    },
+    {
+      'title': 'Nusa Dua',
+      'subtitle': 'Luxury resorts and golf',
+      'image': 'assets/areas/nusa_dua.jpg',
+    },
   ];
-
+  
+  //to be changed with asynchronous data fetching
   final List<Map<String, String>> nearbyAreas = const [
     {
       'title': 'Uluwatu',
