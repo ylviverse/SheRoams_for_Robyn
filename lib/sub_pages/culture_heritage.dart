@@ -28,22 +28,8 @@ class CultureHeritage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Discover Balinese Culture',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Rich traditions and artistic heritage',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 24),
+            
+        
 
             // Categories Grid
             Row(
@@ -133,7 +119,7 @@ class CultureHeritage extends StatelessWidget {
             const SizedBox(height: 12),
             
             _buildInfoCard(
-              icon: Icons.theater_comedy,
+              icon: Icons.filter,
               title: 'Barong Dance',
               description: 'Traditional Balinese dance depicting the eternal battle between good and evil.',
               color: const Color(0xFFF7A5A5),
@@ -245,7 +231,7 @@ class CultureHeritage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
+              color: color.withValues(alpha: .1),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, color: color, size: 28),

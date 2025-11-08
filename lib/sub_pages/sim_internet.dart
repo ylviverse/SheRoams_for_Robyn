@@ -49,7 +49,7 @@ class SimInternet extends StatelessWidget {
             icon: Icons.signal_cellular_alt,
             title: 'Best Providers',
             description: 'Telkomsel and XL are best for coverage island-wide. They offer the most reliable network throughout Bali.',
-            color:  Colors.green,
+            color:  const Color(0xFFF7A5A5),
           ),
 
           const SizedBox(height: 16),
@@ -59,7 +59,7 @@ class SimInternet extends StatelessWidget {
             icon: Icons.shopping_bag,
             title: 'Where to Buy SIM Cards',
             description: 'Buy SIM at airport, convenience stores (Indomaret, Alfamart), or official provider counters.',
-            color:  Colors.green,
+            color:  const Color(0xFFF7A5A5),
           ),
 
           const SizedBox(height: 16),
@@ -69,7 +69,7 @@ class SimInternet extends StatelessWidget {
             icon: Icons.phone_iphone,
             title: 'eSIM Options',
             description: 'Airalo, Nomad, or Holafly offer instant online setup. Perfect for quick activation before arrival.',
-            color:  Colors.green,
+            color:  const Color(0xFFF7A5A5),
           ),
 
           const SizedBox(height: 16),
@@ -79,7 +79,7 @@ class SimInternet extends StatelessWidget {
             icon: Icons.attach_money,
             title: 'Average Cost',
             description: 'IDR 150,000–300,000 for 25–50GB (30 days). Prices vary by provider and data package.',
-            color: const Color(0xFF34C759),
+            color: const Color(0xFFF7A5A5),
           ),
 
           const SizedBox(height: 24),
