@@ -100,7 +100,7 @@ class SimInternet extends StatelessWidget {
                     Icon(Icons.lightbulb, color: Colors.green),
                     SizedBox(width: 8),
                     Text(
-                      'Pro Tips',
+                      'SheRoam Tips',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

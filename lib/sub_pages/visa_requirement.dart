@@ -72,15 +72,10 @@ class VisaRequirement extends StatelessWidget {
           _buildCategoryItem(
             context,
             icon: Icons.description,
-            title: 'Required Documents',
+            title: 'Custom Declaration',
             //subtitle: 'Passport, return tickets, proof of accommodation',
           ),
-          _buildCategoryItem(
-            context,
-            icon: Icons.payments,
-            title: 'Visa Fees',
-            //subtitle: 'Current visa costs and payment methods',
-          ),
+          
         ],
       ),
     );
