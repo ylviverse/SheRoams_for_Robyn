@@ -200,7 +200,7 @@ class _PopularAresState extends State<PopularAres> {
           children: [
             // Image (using placeholder for now )
             Image.network(
-              'https://picsum.photos/seed/$title/200/300', // Replace with AssetImage
+              'https://picsum.photos/seed/$title/200/300', 
               height: 120,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -242,7 +242,7 @@ class _PopularAresState extends State<PopularAres> {
                       Icon(
                         Icons.location_on,
                         size: 14,
-                        color: Color(0xFFF7A5A5),
+                        color: Color(0xFFefa355),
                       ),
                       SizedBox(width: 4),
                       Text(
