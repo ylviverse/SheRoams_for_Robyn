@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:she_roams_bali/components/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:carousel_slider/carousel_slider.dart' as carousel_pkg;
+import 'package:she_roams_bali/sub_pages/culture_heritage.dart';
 import 'package:she_roams_bali/sub_pages/money_and_atm.dart';
 import 'package:she_roams_bali/sub_pages/popular_ares.dart';
 import 'package:she_roams_bali/sub_pages/sim_internet.dart';
@@ -163,6 +164,13 @@ class Homepage extends StatelessWidget {
                   title: 'Popular Areas', 
                   subtitle: 'Areas to explore in Bali'),
 
+                  _buildCategoryItem(
+                    context,
+                    icon: Icons.person_2, 
+                    title: 'Culture & Heritage',
+                    subtitle: 'Batik, gamelan, painting, dance, and carving.',
+                  ),
+
                   _buildCategoryItem(context, 
                   icon: Icons.wb_sunny, 
                   title: 'Weather & Seasons', 
@@ -184,12 +192,7 @@ class Homepage extends StatelessWidget {
                   subtitle: 'Guideline for accessing network and internet within Bali' ),
 
                 
-                  _buildCategoryItem(
-                    context,
-                    icon: Icons.palette, 
-                    title: 'Culture & Heritage',
-                    subtitle: 'Batik, gamelan, painting, dance, and carving.',
-                  ),
+                  
                  
                
             
@@ -308,12 +311,12 @@ class Homepage extends StatelessWidget {
                  MaterialPageRoute(builder: (context) => const SimInternet()),
                );
                break;
-            // case 'Culture & Heritage':
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => const CultureHeritagePage()),
-            //   );
-            //   break;
+             case 'Culture & Heritage':
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context) => const CultureHeritage()),
+               );
+               break;
             // case 'Cultural Etiquette':
             //   Navigator.push(
             //     context,
