@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:she_roams_bali/components/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:carousel_slider/carousel_slider.dart' as carousel_pkg;
+import 'package:she_roams_bali/sub_pages/money_and_atm.dart';
 import 'package:she_roams_bali/sub_pages/popular_ares.dart';
+import 'package:she_roams_bali/sub_pages/sim_internet.dart';
 import 'package:she_roams_bali/sub_pages/visa_requirement.dart';
 import 'package:she_roams_bali/sub_pages/weather_page.dart';
 
@@ -23,6 +25,7 @@ class Homepage extends StatelessWidget {
     ];
 
     return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
 
 
       
@@ -293,18 +296,18 @@ class Homepage extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const VisaRequirement()),
               );
               break;
-            // case 'Money & ATMs':
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => const MoneyATMsPage()),
-            //   );
-            //   break;
-            // case 'Sim Card & Internet':
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => const SimCardInternetPage()),
-            //   );
-            //   break;
+             case 'Money & ATMs':
+              Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context) => const MoneyAndAtm()),
+               );
+             break;
+             case 'Sim Card & Internet':
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context) => const SimInternet()),
+               );
+               break;
             // case 'Culture & Heritage':
             //   Navigator.push(
             //     context,
