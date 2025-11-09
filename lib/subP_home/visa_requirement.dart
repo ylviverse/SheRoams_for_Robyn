@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class VisaRequirement extends StatefulWidget {
   const VisaRequirement({super.key});
@@ -218,7 +220,11 @@ class _VisaRequirementState extends State<VisaRequirement> {
       children: [
         const Divider(height: 1),
         const SizedBox(height: 12),
-        _buildInfoRow(Icons.computer, 'Apply online', 'molina.imigrasi.go.id'),
+        _buildClickableLinkRow(
+          Icons.computer,
+          'Apply online',
+          'https://evisa.imigrasi.go.id',
+        ),
         const SizedBox(height: 8),
         _buildInfoRow(Icons.access_time, 'Processing time', '3-5 business days'),
         const SizedBox(height: 8),
@@ -300,6 +306,60 @@ class _VisaRequirementState extends State<VisaRequirement> {
     );
   }
 
+      Widget _buildClickableLinkRow(IconData icon, String label, String url) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, size: 18, color: Colors.grey[700]),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '$label:',
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 4),
+              GestureDetector(
+                onTap: () => _launchURL(url),
+                child: Text(
+                  url,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF4A90E2),
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+    Future<void> _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      
+      if (!await launchUrl(url)) {
+        throw Exception('Could not launch $urlString');
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Could not open the link'),
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
+    }
+  }
   Widget _buildInfoRow(IconData icon, String label, String value) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
