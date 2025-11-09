@@ -93,7 +93,7 @@ class _TravelProtectionState extends State<TravelProtection> {
             name: 'World Nomads',
             coverage: 'Comprehensive medical & adventure sports',
             bestFor: 'The Adventurer (surfing, hiking) & gear cover',
-            color: const Color(0xFF2ECC71),
+            color: const Color(0xFFF7A5A5),
             url: 'https://www.worldnomads.com',
           ),
           
@@ -103,7 +103,7 @@ class _TravelProtectionState extends State<TravelProtection> {
             name: 'SafetyWing',
             coverage: 'Remote health insurance for travelers',
             bestFor: 'The Digital Nomad & long-term flexibility',
-            color: const Color(0xFF3498DB),
+            color: const Color(0xFFF7A5A5),
             url: 'https://www.safetywing.com',
           ),
           
@@ -113,7 +113,7 @@ class _TravelProtectionState extends State<TravelProtection> {
             name: 'Heymondo',
             coverage: 'All-around protection & app-based claims',
             bestFor: 'Comprehensive cover & an easy-to-use app',
-            color: const Color(0xFFF39C12),
+            color: const Color(0xFFF7A5A5),
             url: 'https://www.heymondo.com',
           ),
         ],
@@ -121,6 +121,8 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+  //widget to build expandable item
   Widget _buildExpandableItem({
     required String title,
     required IconData icon,
@@ -181,6 +183,8 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+  //widget to build health insurance content
   Widget _buildHealthInsuranceContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -232,6 +236,8 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+  // Helper to build travel insurance content
   Widget _buildTravelInsuranceContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -276,6 +282,9 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+
+  // Helper to build provider card
   Widget _buildProviderCard({
     required String name,
     required String coverage,
@@ -365,6 +374,9 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+
+  // Helper to build clickable link row
   Widget _buildClickableLinkRow(IconData icon, String label, String url) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -402,6 +414,8 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+  // Helper to build info box
   Widget _buildInfoBox({
     required Color color,
     required IconData icon,
@@ -428,6 +442,8 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+  // Helper to build info row
   Widget _buildInfoRow(IconData icon, String label, String value) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -452,6 +468,8 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+  // Helper to build bullet point text
   Widget _buildBulletPoint(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 6.0),
@@ -470,6 +488,8 @@ class _TravelProtectionState extends State<TravelProtection> {
     );
   }
 
+
+  // Launch URL with error handling
   Future<void> _launchURL(String urlString) async {
     final Uri url = Uri.parse(urlString);
     try {

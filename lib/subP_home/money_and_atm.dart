@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:she_roams_bali/subP_home/money_atm_subpage/currency_exchange.dart';
 
 class MoneyAndAtm extends StatelessWidget {
   const MoneyAndAtm({super.key});
@@ -50,6 +51,14 @@ class MoneyAndAtm extends StatelessWidget {
             icon: Icons.currency_exchange,
             title: 'Currency Exchange',
             subtitle: 'Checking rates and tips',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CurrencyExchange(),
+                ),
+              );
+            },
           ),
           _buildCategoryItem(
             context,
@@ -85,19 +94,20 @@ class MoneyAndAtm extends StatelessWidget {
     required IconData icon,
     required String title,
     required String subtitle,
+    VoidCallback? onTap,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: ListTile(
         leading: Container(
-          width: 48, // Add fixed width
-          height: 48, // Add fixed height
+          width: 48, 
+          height: 48,
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: Colors.grey[100],
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Icon(icon, color: Colors.grey[800], size: 24), // Slightly smaller icon to fit
+          child: Icon(icon, color: Colors.grey[800], size: 24), 
         ),
         title: Text(
           title,
@@ -105,7 +115,7 @@ class MoneyAndAtm extends StatelessWidget {
         ),
         subtitle: Text(subtitle, style: TextStyle(color: Colors.grey[600])),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: () {
+        onTap: onTap ?? () {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('Viewing details for $title'),
