@@ -99,7 +99,7 @@ class _VisaRequirementState extends State<VisaRequirement> {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
+              color: Colors.grey.withValues(alpha: .1),
               spreadRadius: 1,
               blurRadius: 4,
               offset: const Offset(0, 2),
@@ -222,7 +222,7 @@ class _VisaRequirementState extends State<VisaRequirement> {
         const SizedBox(height: 12),
         _buildClickableLinkRow(
           Icons.computer,
-          'Apply online',
+          'Apply online at',
           'https://evisa.imigrasi.go.id',
         ),
         const SizedBox(height: 8),
@@ -302,10 +302,20 @@ class _VisaRequirementState extends State<VisaRequirement> {
         _buildBulletPoint('Firearms and explosives'),
         _buildBulletPoint('Pornographic materials'),
         _buildBulletPoint('Chinese traditional medicines'),
+
+        const SizedBox(height: 8),
+        _buildClickableLinkRow(
+          Icons.computer,
+          'For more info, visit',
+          'https://ecd.beacukai.go.id',
+        ),
       ],
     );
   }
 
+
+
+ // Clickable link function 
       Widget _buildClickableLinkRow(IconData icon, String label, String url) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -342,6 +352,8 @@ class _VisaRequirementState extends State<VisaRequirement> {
       ],
     );
   }
+
+    // Function to launch URL
     Future<void> _launchURL(String urlString) async {
     final Uri url = Uri.parse(urlString);
     try {
@@ -360,6 +372,10 @@ class _VisaRequirementState extends State<VisaRequirement> {
       }
     }
   }
+
+
+
+// Info row widget
   Widget _buildInfoRow(IconData icon, String label, String value) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -384,6 +400,8 @@ class _VisaRequirementState extends State<VisaRequirement> {
     );
   }
 
+
+// Bullet point widget
   Widget _buildBulletPoint(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 6.0),
