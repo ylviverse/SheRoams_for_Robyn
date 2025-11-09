@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+
 class CultureHeritage extends StatelessWidget {
   const CultureHeritage({super.key});
 
@@ -40,7 +41,9 @@ class CultureHeritage extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                   ),
+                  
                 ),
+                
                 
                   
               
@@ -68,12 +71,12 @@ class CultureHeritage extends StatelessWidget {
                   color: const Color(0xFFF7A5A5),
                 ),
                 _buildCategoryCard(
-                  icon: Icons.temple_hindu,
+                  icon: Icons.mosque,
                   label: 'Temples',
                   color: const Color(0xFFF7A5A5),
                 ),
                 _buildCategoryCard(
-                  icon: Icons.festival,
+                  icon: Icons.celebration_sharp,
                   label: 'Festivals',
                   color: const Color(0xFFF7A5A5),
                 ),
@@ -83,33 +86,22 @@ class CultureHeritage extends StatelessWidget {
                   color: const Color(0xFFF7A5A5),
                 ),
                 _buildCategoryCard(
-                  icon: Icons.carpenter,
+                  icon: Icons.brush,
                   label: 'Crafts',
                   color: const Color(0xFFF7A5A5),
                 ),
-                _buildCategoryCard(
-                  icon: Icons.food_bank,
-                  label: 'Cuisine',
-                  color: const Color(0xFFF7A5A5),
-                ),
-                _buildCategoryCard(
-                  icon: Icons.checkroom,
-                  label: 'Clothing',
-                  color: const Color(0xFFF7A5A5),
-                ),
-                _buildCategoryCard(
-                  icon: Icons.auto_stories,
-                  label: 'Stories',
-                  color: const Color(0xFFF7A5A5),
-                ),
+                
+         
+           
+                
               ],
             ),
 
             const SizedBox(height: 12),
 
-            // Traditional Arts Section
+            //Etiquette Section
             const Text(
-              'Traditional Arts',
+              'Cultural Etiquette',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -119,8 +111,8 @@ class CultureHeritage extends StatelessWidget {
             const SizedBox(height: 12),
             
             _buildInfoCard(
-              icon: Icons.filter,
-              title: 'Barong Dance',
+              icon: Icons.checkroom,
+              title: 'Traditional Attire',
               description: 'Traditional Balinese dance depicting the eternal battle between good and evil.',
               color: const Color(0xFFF7A5A5),
             ),
@@ -128,8 +120,8 @@ class CultureHeritage extends StatelessWidget {
             const SizedBox(height: 12),
             
             _buildInfoCard(
-              icon: Icons.music_note,
-              title: 'Kecak Fire Dance',
+              icon: Icons.whatshot,
+              title: 'Visitor Guidelines',
               description: 'Mesmerizing dance performed by dozens of men chanting "cak" around flames.',
               color: const Color(0xFFF7A5A5),
             ),

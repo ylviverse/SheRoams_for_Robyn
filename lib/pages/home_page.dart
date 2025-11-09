@@ -6,6 +6,7 @@ import 'package:she_roams_bali/sub_pages/culture_heritage.dart';
 import 'package:she_roams_bali/sub_pages/money_and_atm.dart';
 import 'package:she_roams_bali/sub_pages/popular_ares.dart';
 import 'package:she_roams_bali/sub_pages/sim_internet.dart';
+import 'package:she_roams_bali/sub_pages/travel_protection.dart';
 import 'package:she_roams_bali/sub_pages/visa_requirement.dart';
 import 'package:she_roams_bali/sub_pages/weather_page.dart';
 
@@ -196,10 +197,6 @@ class Homepage extends StatelessWidget {
                  
                
             
-                  _buildCategoryItem(context,
-                   icon: Icons.group, 
-                   title: 'Cultural Etiquette', 
-                   subtitle: 'How to dress and behave respectfully.'),
 
                   
 
@@ -221,7 +218,7 @@ class Homepage extends StatelessWidget {
 
       // Floating Action Button
       floatingActionButton: FloatingActionButton(
-        elevation: 1,
+        elevation: 2,
         onPressed: () {
           // Action when FAB is pressed
           
@@ -317,18 +314,13 @@ class Homepage extends StatelessWidget {
                  MaterialPageRoute(builder: (context) => const CultureHeritage()),
                );
                break;
-            // case 'Cultural Etiquette':
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => const CulturalEtiquettePage()),
-            //   );
-            //   break;
-            // case 'Travel Protection':
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => const TravelProtectionPage()),
-            //   );
-            //   break;
+  
+             case 'Travel Protection':
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context) => const TravelProtection()),
+               );
+               break;
             default:
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(

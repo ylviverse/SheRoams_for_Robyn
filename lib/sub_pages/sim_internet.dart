@@ -47,9 +47,9 @@ class SimInternet extends StatelessWidget {
           // Best Providers
           _buildInfoCard(
             icon: Icons.signal_cellular_alt,
-            title: 'Best Providers',
+            title: 'Providers',
             description: 'Telkomsel and XL are best for coverage island-wide. They offer the most reliable network throughout Bali.',
-            color:  const Color(0xFFF7A5A5),
+            color:   Colors.green,//(0xFFF7A5A5),
           ),
 
           const SizedBox(height: 16),
@@ -57,9 +57,9 @@ class SimInternet extends StatelessWidget {
           // Where to Buy
           _buildInfoCard(
             icon: Icons.shopping_bag,
-            title: 'Where to Buy SIM Cards',
+            title: 'Where to Buy',
             description: 'Buy SIM at airport, convenience stores (Indomaret, Alfamart), or official provider counters.',
-            color:  const Color(0xFFF7A5A5),
+            color:   Colors.green,//(0xFFF7A5A5),
           ),
 
           const SizedBox(height: 16),
@@ -67,20 +67,13 @@ class SimInternet extends StatelessWidget {
           // eSIM Options
           _buildInfoCard(
             icon: Icons.phone_iphone,
-            title: 'eSIM Options',
+            title: 'eSIM',
             description: 'Airalo, Nomad, or Holafly offer instant online setup. Perfect for quick activation before arrival.',
-            color:  const Color(0xFFF7A5A5),
+            color:   Colors.green,//(0xFFF7A5A5),
           ),
 
           const SizedBox(height: 16),
 
-          // Pricing
-          _buildInfoCard(
-            icon: Icons.attach_money,
-            title: 'Average Cost',
-            description: 'IDR 150,000–300,000 for 25–50GB (30 days). Prices vary by provider and data package.',
-            color: const Color(0xFFF7A5A5),
-          ),
 
           const SizedBox(height: 24),
 
@@ -165,7 +158,7 @@ class SimInternet extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 6),
+            
                 Text(
                   description,
                   style: TextStyle(
