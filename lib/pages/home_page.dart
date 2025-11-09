@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:she_roams_bali/components/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:carousel_slider/carousel_slider.dart' as carousel_pkg;
-import 'package:she_roams_bali/sub_pages/culture_heritage.dart';
-import 'package:she_roams_bali/sub_pages/money_and_atm.dart';
-import 'package:she_roams_bali/sub_pages/popular_ares.dart';
-import 'package:she_roams_bali/sub_pages/sim_internet.dart';
-import 'package:she_roams_bali/sub_pages/travel_protection.dart';
-import 'package:she_roams_bali/sub_pages/visa_requirement.dart';
-import 'package:she_roams_bali/sub_pages/weather_page.dart';
+import 'package:she_roams_bali/subP_home/culture_heritage.dart';
+import 'package:she_roams_bali/subP_home/money_and_atm.dart';
+import 'package:she_roams_bali/subP_home/popular_ares.dart';
+import 'package:she_roams_bali/subP_home/sim_internet.dart';
+import 'package:she_roams_bali/subP_home/travel_protection.dart';
+import 'package:she_roams_bali/subP_home/visa_requirement.dart';
+import 'package:she_roams_bali/subP_home/weather_page.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});

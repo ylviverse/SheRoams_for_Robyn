@@ -129,9 +129,9 @@ class CultureHeritage extends StatelessWidget {
             const SizedBox(height: 12),
             
             _buildInfoCard(
-              icon: Icons.music_video,
-              title: 'Gamelan Music',
-              description: 'Traditional ensemble music using bronze percussion instruments.',
+              icon: Icons.attach_money,
+              title: 'Offerings Overview',
+              description: 'Checking out local offerings and their significance in daily Balinese life.',
               color: const Color(0xFFF7A5A5),
             ),
 
