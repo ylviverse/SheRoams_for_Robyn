@@ -172,10 +172,6 @@ class Homepage extends StatelessWidget {
                     subtitle: 'Batik, gamelan, painting, dance, and carving.',
                   ),
 
-                  _buildCategoryItem(context, 
-                  icon: Icons.wb_sunny, 
-                  title: 'Weather & Seasons', 
-                  subtitle: "When's the best time to visit Bali" ),
 
                   _buildCategoryItem(context,
                   icon: Icons.airplane_ticket, 
@@ -186,6 +182,11 @@ class Homepage extends StatelessWidget {
                   icon: CupertinoIcons.creditcard_fill, 
                   title: 'Money & ATMs', 
                   subtitle: 'Using local currency and finding ATMs' ),
+
+                  _buildCategoryItem(context, 
+                  icon: Icons.wb_sunny, 
+                  title: 'Weather & Seasons', 
+                  subtitle: "When's the best time to visit Bali" ),
 
                   _buildCategoryItem(context, 
                   icon: Icons.sim_card_alert_sharp, 
