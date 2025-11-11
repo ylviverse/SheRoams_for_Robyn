@@ -69,52 +69,14 @@ class _TravelProtectionState extends State<TravelProtection> {
             content: _buildTravelInsuranceContent(),
           ),
 
-          const SizedBox(height: 24),
+          const SizedBox(height: 12),
 
-          const Text(
-            'Recommended Providers',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF1A2A4F),
-            ),
-          ),
-          const SizedBox(height: 4),
-          const Text(
-            'Popular choices for female & solo travelers:',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey,
-            ),
-          ),
-          const SizedBox(height: 12),
-          
-          _buildProviderCard(
-            name: 'World Nomads',
-            coverage: 'Comprehensive medical & adventure sports',
-            bestFor: 'The Adventurer (surfing, hiking) & gear cover',
-            color: const Color(0xFFF7A5A5),
-            url: 'https://www.worldnomads.com',
-          ),
-          
-          const SizedBox(height: 12),
-          
-          _buildProviderCard(
-            name: 'SafetyWing',
-            coverage: 'Remote health insurance for travelers',
-            bestFor: 'The Digital Nomad & long-term flexibility',
-            color: const Color(0xFFF7A5A5),
-            url: 'https://www.safetywing.com',
-          ),
-          
-          const SizedBox(height: 12),
-          
-          _buildProviderCard(
-            name: 'Heymondo',
-            coverage: 'All-around protection & app-based claims',
-            bestFor: 'Comprehensive cover & an easy-to-use app',
-            color: const Color(0xFFF7A5A5),
-            url: 'https://www.heymondo.com',
+          _buildExpandableItem(
+            title: 'Recommended Providers',
+            icon: Icons.business_center,
+            iconColor: const Color(0xFFefa355),
+            sectionKey: 'providers',
+            content: _buildProvidersContent(),
           ),
         ],
       ),
@@ -283,6 +245,63 @@ class _TravelProtectionState extends State<TravelProtection> {
   }
 
 
+  // Widget to build providers content
+  Widget _buildProvidersContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Divider(height: 1),
+        const SizedBox(height: 12),
+        
+        const Text(
+          'Popular choices for female & solo travelers:',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
+        const SizedBox(height: 16),
+        
+        _buildProviderCard(
+          name: 'World Nomads',
+          coverage: 'Comprehensive medical & adventure sports',
+          bestFor: 'The Adventurer (surfing, hiking) & gear cover',
+          color: const Color(0xFF2ECC71),
+          url: 'https://www.worldnomads.com',
+        ),
+        
+        const SizedBox(height: 12),
+        
+        _buildProviderCard(
+          name: 'SafetyWing',
+          coverage: 'Remote health insurance for travelers',
+          bestFor: 'The Digital Nomad & long-term flexibility',
+          color: const Color(0xFF3498DB),
+          url: 'https://www.safetywing.com',
+        ),
+        
+        const SizedBox(height: 12),
+        
+        _buildProviderCard(
+          name: 'Heymondo',
+          coverage: 'All-around protection & app-based claims',
+          bestFor: 'Comprehensive cover & an easy-to-use app',
+          color: const Color(0xFF9B59B6),
+          url: 'https://www.heymondo.com',
+        ),
+
+        const SizedBox(height: 16),
+
+        _buildInfoBox(
+          color: const Color(0xFFefa355),
+          icon: Icons.info_outline,
+          text: 'Always compare coverage, prices, and reviews before purchasing. These are suggestions, not endorsements.',
+        ),
+      ],
+    );
+  }
+
 
   // Helper to build provider card
   Widget _buildProviderCard({
@@ -373,7 +392,6 @@ class _TravelProtectionState extends State<TravelProtection> {
       ),
     );
   }
-
 
 
   // Helper to build clickable link row
