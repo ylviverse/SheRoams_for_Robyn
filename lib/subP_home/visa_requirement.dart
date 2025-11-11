@@ -69,16 +69,26 @@ class _VisaRequirementState extends State<VisaRequirement> {
             sectionKey: 'e_visa',
             content: _buildEVisaContent(),
           ),
+
+           _buildExpandableItem(
+            title: 'Golden Visa & Other Options',
+            sectionKey: 'golden_visa',
+            content: _buildGoldenVisaContent(),
+          ),
           _buildExpandableItem(
             title: 'Extension Process',
             sectionKey: 'extension',
             content: _buildExtensionContent(),
           ),
+
+          
           _buildExpandableItem(
             title: 'Custom Declaration',
             sectionKey: 'customs',
             content: _buildCustomsContent(),
           ),
+
+          _buildImportantReminder(),
         ],
       ),
     );
@@ -137,6 +147,10 @@ class _VisaRequirementState extends State<VisaRequirement> {
     );
   }
 
+
+
+
+
   // Content for VOA
   Widget _buildVOAContent() {
     return Column(
@@ -155,18 +169,28 @@ class _VisaRequirementState extends State<VisaRequirement> {
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.blue[50],
+            color: Colors.white,
             borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Colors.red.shade100),
           ),
-          child: Row(
-            children: const [
-              Icon(Icons.info_outline, color: Colors.blue, size: 20),
-              SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  'Best for tourists planning to stay 30-60 days',
-                  style: TextStyle(fontSize: 13, color: Colors.black87),
-                ),
+          child: Column(
+            children: [
+              Row(
+                children: const [
+                 
+                  Expanded(
+                    child: Text(
+                      'Best for tourists planning to stay 30-60 days',
+                      style: TextStyle(fontSize: 13, color: Colors.black87),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              _buildClickableLinkRow(
+                Icons.info_outline,
+                'For more info, visit',
+                'https://www.imigrasi.go.id',
               ),
             ],
           ),
@@ -186,25 +210,36 @@ class _VisaRequirementState extends State<VisaRequirement> {
         const SizedBox(height: 8),
         _buildInfoRow(Icons.money_off, 'Cost', 'Free'),
         const SizedBox(height: 8),
-        _buildInfoRow(Icons.public, 'Eligible countries', '169 countries including US, UK, EU, Australia'),
+        _buildInfoRow(Icons.public, 'Eligible countries', '169 countries including US, UK, EU, Australia, all ASEAN'),
         const SizedBox(height: 8),
         _buildInfoRow(Icons.flight_takeoff, 'Entry points', 'Selected airports and seaports only'),
         const SizedBox(height: 12),
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.orange[50],
+            color: Colors.white,
             borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Colors.red.shade100),
           ),
-          child: Row(
-            children: const [
-              Icon(Icons.warning_amber, color: Colors.orange, size: 20),
-              SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  'Cannot be extended. Must leave after 30 days',
-                  style: TextStyle(fontSize: 13, color: Colors.black87),
-                ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: const [
+                  
+                  Expanded(
+                    child: Text(
+                      'Cannot be extended. Must leave after 30 days',
+                      style: TextStyle(fontSize: 13, color: Colors.black87),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              _buildClickableLinkRow(
+                Icons.info_outline,
+                'For more info, visit',
+                'https://www.imigrasi.go.id',
               ),
             ],
           ),
@@ -212,6 +247,7 @@ class _VisaRequirementState extends State<VisaRequirement> {
       ],
     );
   }
+
 
   // Content for E-Visa
   Widget _buildEVisaContent() {
@@ -315,6 +351,8 @@ class _VisaRequirementState extends State<VisaRequirement> {
 
 
 
+
+
  // Clickable link function 
       Widget _buildClickableLinkRow(IconData icon, String label, String url) {
     return Row(
@@ -353,6 +391,9 @@ class _VisaRequirementState extends State<VisaRequirement> {
     );
   }
 
+
+
+
     // Function to launch URL
     Future<void> _launchURL(String urlString) async {
     final Uri url = Uri.parse(urlString);
@@ -372,6 +413,10 @@ class _VisaRequirementState extends State<VisaRequirement> {
       }
     }
   }
+
+
+
+
 
 
 
@@ -401,6 +446,9 @@ class _VisaRequirementState extends State<VisaRequirement> {
   }
 
 
+
+
+
 // Bullet point widget
   Widget _buildBulletPoint(String text) {
     return Padding(
@@ -417,6 +465,149 @@ class _VisaRequirementState extends State<VisaRequirement> {
           ),
         ],
       ),
+    );
+  }
+
+
+
+
+
+
+  // Important reminder widget
+  Widget _buildImportantReminder() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white54,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.red.shade100),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                Icons.warning_amber_rounded,
+                color: Colors.red.shade300,
+                size: 28,
+              ),
+              const SizedBox(width: 12),
+              const Expanded(
+                child: Text(
+                  'Important Reminder',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF1A2A4F),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'Please remember all information provided is a guide only. Always check official government sources before you travel.',
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.5,
+              color: Colors.black87,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Colors.red.shade100),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.block, color: Colors.red.shade300, size: 20),
+                const SizedBox(width: 8),
+                const Expanded(
+                  child: Text(
+                    'Avoid unofficial agents or websites claiming to "fast-track" visas — they often charge inflated fees or provide outdated information.',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.black87,
+                      height: 1.4,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+
+
+
+    // Content for Golden Visa & Other Options
+  Widget _buildGoldenVisaContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Divider(height: 1),
+        const SizedBox(height: 12),
+        const Text(
+          'Indonesia now offers several new categories (such as Golden Visa, Digital Nomad, or Investment Visas).',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.black87,
+            height: 1.5,
+          ),
+        ),
+        const SizedBox(height: 12),
+        _buildBulletPoint('These have specific financial or sponsorship requirements'),
+        _buildBulletPoint('Best suited for long-term residents, investors, or business owners'),
+        const SizedBox(height: 16),
+        Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Colors.red.shade100),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.handshake_sharp, color: Colors.red[700], size: 20),
+                  const SizedBox(width: 8),
+                  const Expanded(
+                    child: Text(
+                      'Golden Visa Benefits',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                '5 or 10-year stay permits for qualified investors and their families',
+                style: TextStyle(fontSize: 13, color: Colors.black87),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        _buildClickableLinkRow(
+          Icons.info_outline,
+          'Learn more',
+          'https://www.imigrasi.go.id/en/visa/',
+        ),
+      ],
     );
   }
 }
