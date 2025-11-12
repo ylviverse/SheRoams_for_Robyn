@@ -276,7 +276,7 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
     );
   }
 
-  Widget _buildCardsContent() {
+    Widget _buildCardsContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -309,20 +309,6 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
           description: 'Accepted worldwide; emergency replacement',
           url: 'https://www.visa.com',
         ),
-
-        const SizedBox(height: 16),
-
-        _buildSectionHeader('🧼 Hygiene & Safety Tips'),
-        const SizedBox(height: 12),
-
-        _buildBulletPoint('Wash or sanitise hands after handling cash'),
-        _buildBulletPoint('Keep large sums and passports in your villa or hotel safe'),
-        _buildBulletPoint('Avoid showing large notes in public'),
-        _buildBulletPoint('Use daytime ATMs and inspect the slot for skimming devices'),
-        _buildBulletPoint('Always cover your PIN'),
-        _buildBulletPoint('Use a VPN for online banking or payments'),
-        _buildBulletPoint('Always get a receipt when exchanging money'),
-        _buildBulletPoint('Carry a mix of cash, card, and e-wallets (e.g. Wise / Revolut)'),
       ],
     );
   }
@@ -688,21 +674,12 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
     );
   }
 
-  Future<void> _launchURL(String urlString) async {
-    final Uri url = Uri.parse(urlString);
-    try {
-      if (!await launchUrl(url)) {
-        throw Exception('Could not launch $urlString');
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Could not open the link'),
-            duration: Duration(seconds: 2),
-          ),
-        );
-      }
-    }
-  }
+
+
+
+  //this method launches url and shows snackbar on error
+ Future<void> _launchURL(String urlString) async {
+  final Uri url = Uri.parse(urlString);
+  await launchUrl(url);
+}
 }
