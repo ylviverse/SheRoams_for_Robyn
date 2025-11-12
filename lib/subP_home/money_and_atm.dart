@@ -289,35 +289,41 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
         _buildCardItem(
           name: 'Wise Travel Card',
           description: 'Hold and spend multiple currencies; lowest conversion fees',
+          subtitle: 'For More Info:',
           url: 'https://wise.com',
         ),
 
         _buildCardItem(
           name: 'Revolut Card',
           description: 'Exchange instantly at live rates; app management',
+          subtitle: 'For More Info:',
           url: 'https://revolut.com',
         ),
 
         _buildCardItem(
           name: 'Travelex Money Card',
           description: 'Lock in exchange rates before travel',
+          subtitle: 'For More Info:',
           url: 'https://www.travelex.com',
         ),
 
         _buildCardItem(
           name: 'Visa TravelMoney',
           description: 'Accepted worldwide; emergency replacement',
+          subtitle: 'For More Info:',
           url: 'https://www.visa.com',
         ),
 
         _buildCardItem(
           name: 'Post Office Money Card',
           description: 'No ATM fees at Post Office branches; manages up to 22 currencies',
+          subtitle: 'For More Info:',
           url: 'https://www.postoffice.co.uk',
         ),
 
         _buildCardItem(name: 'TUI Travel Card',
-         description: 'Works anywhere, Mastercard is accepted',
+         description: 'Works anywhere, Mastercard is accepted.',
+         subtitle: 'For More Info:',
           url: 'https://www.tui.co.uk',
           ),
       ],
@@ -586,7 +592,9 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
   Widget _buildCardItem({
     required String name,
     required String description,
+    required String subtitle,
     required String url,
+    IconData? icon,
   }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -613,6 +621,21 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
               style: TextStyle(fontSize: 13, color: Colors.grey[700]),
             ),
             const SizedBox(height: 8),
+            
+            Row(
+              children: [
+                Icon(
+                  icon ?? Icons.info_outline,
+                  size: 14,
+                  color: Colors.black,
+                ),
+                Text(
+                  subtitle,
+                  style: TextStyle(fontSize: 11, color: Colors.black, fontStyle: FontStyle.italic),
+                ),
+              ],
+            ),
+         
             GestureDetector(
               onTap: () => _launchURL(url),
               child: Row(
