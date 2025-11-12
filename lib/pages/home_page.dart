@@ -172,7 +172,6 @@ class Homepage extends StatelessWidget {
                     subtitle: 'Batik, gamelan, painting, dance, and carving.',
                   ),
 
-
                   _buildCategoryItem(context,
                   icon: Icons.airplane_ticket, 
                   title: 'Visa & Entry Requirements', 
@@ -192,14 +191,6 @@ class Homepage extends StatelessWidget {
                   icon: Icons.sim_card_alert_sharp, 
                   title: 'Sim Card & Internet', 
                   subtitle: 'Guideline for accessing network and internet within Bali' ),
-
-                
-                  
-                 
-               
-            
-
-                  
 
                   _buildCategoryItem(context, 
                   icon: CupertinoIcons.airplane, 
