@@ -309,6 +309,17 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
           description: 'Accepted worldwide; emergency replacement',
           url: 'https://www.visa.com',
         ),
+
+        _buildCardItem(
+          name: 'Post Office Money Card',
+          description: 'No ATM fees at Post Office branches; manages up to 22 currencies',
+          url: 'https://www.postoffice.co.uk',
+        ),
+
+        _buildCardItem(name: 'TUI Travel Card',
+         description: 'Works anywhere, Mastercard is accepted',
+          url: 'https://www.tui.co.uk',
+          ),
       ],
     );
   }
