@@ -272,7 +272,7 @@ class _WeatherPageState extends State<WeatherPage> {
         
         _buildSeasonCard(
           season: 'Dry Season (Best)',
-          months: 'April - October',
+          months: 'May - October',
           icon: '☀️',
           color: Colors.orange,
           description: 'Perfect weather for beach activities and exploring',
@@ -284,11 +284,11 @@ class _WeatherPageState extends State<WeatherPage> {
           ],
         ),
         
-        const SizedBox(height: 12),
+        const SizedBox(height: 18),
         
         _buildSeasonCard(
           season: 'Wet Season',
-          months: 'November - March',
+          months: 'November - April',
           icon: '🌧️',
           color: Colors.blue,
           description: 'Occasional rain, lush green landscapes',

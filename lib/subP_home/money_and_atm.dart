@@ -209,11 +209,11 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
         const Divider(height: 1),
         const SizedBox(height: 16),
 
-        _buildSectionHeader('💳 ATM Fees & Currency Choice'),
+        _buildSectionHeader('ATM Fees & Currency Choice'),
         const SizedBox(height: 12),
 
         _buildInfoText(
-          'When withdrawing cash or paying by card in Bali, it\'s easy to lose extra money through hidden conversion or ATM fees — here\'s what to expect and how to avoid it:',
+          'When withdrawing cash or paying by card in Bali, it\'s easy to lose extra money through hidden conversion or ATM fees. Here\'s what to expect and how to avoid it:',
         ),
         
         const SizedBox(height: 12),
@@ -231,25 +231,9 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
 
         const SizedBox(height: 16),
 
-        _buildSectionHeader('🌍 Always Choose "Charge in IDR" (Local Currency)'),
+        _buildSectionHeader('Always Choose "Charge in IDR" (Local Currency)'),
         const SizedBox(height: 12),
 
-        Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: Colors.blue.shade50,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Colors.blue.shade200),
-          ),
-          child: const Text(
-            '"Charge in your home currency or in Indonesian Rupiah (IDR)?"',
-            style: TextStyle(
-              fontSize: 14,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
 
         const SizedBox(height: 12),
 
@@ -266,7 +250,7 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
 
         const SizedBox(height: 16),
 
-        _buildSectionHeader('👮 Security Officer Tip'),
+        _buildSectionHeader('Security Officer Tip'),
         const SizedBox(height: 12),
 
         _buildInfoText(
@@ -337,7 +321,7 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
         const Divider(height: 1),
         const SizedBox(height: 16),
 
-        _buildSectionHeader('🏦 Reputable Banks in Bali'),
+        _buildSectionHeader('Reputable Banks in Bali'),
         const SizedBox(height: 12),
 
         _buildInfoText(
@@ -384,11 +368,11 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
 
         _buildBankItem(
           name: 'Maybank Indonesia',
-          description: 'Malaysian-linked bank; strong security standards',
+          description: 'Malaysian-linked bank, strong security standards',
           areas: 'Tourist centres & malls',
         ),
 
-        const SizedBox(height: 16),
+        const SizedBox(height: 10),
 
         _buildTipBox(
           'ATMs inside bank buildings or attached to branches are always safer.',
@@ -404,8 +388,8 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
         const Divider(height: 1),
         const SizedBox(height: 16),
 
-        _buildSectionHeader('🌴 The Golden Rule'),
-        const SizedBox(height: 12),
+        _buildSectionHeader('The Golden Rule'),
+        const SizedBox(height: 8),
 
         Container(
           padding: const EdgeInsets.all(12),
@@ -431,7 +415,7 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
 
         const SizedBox(height: 16),
 
-        _buildSectionHeader('💰 Recognising a Trustworthy Money Changer'),
+        _buildSectionHeader('Recognising a Trustworthy Money Changer'),
         const SizedBox(height: 12),
 
         const Text(
@@ -488,28 +472,24 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.pink.shade50,
-            Colors.orange.shade50,
-          ],
-        ),
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFefa355).withValues(alpha: .3)),
+        border: Border.all(color:  Colors.green.shade500),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: const [
-              Text('🌺', style: TextStyle(fontSize: 24)),
-              SizedBox(width: 8),
+              Icon(Icons.info,color: Colors.green,),
+              SizedBox(width: 10,),
               Expanded(
                 child: Text(
                   'Affiliate Disclosure',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    color: Colors.green,
                   ),
                 ),
               ),
@@ -566,7 +546,7 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
   }
 
   Widget _buildTipBox(String text, {Color? color}) {
-    final boxColor = color ?? Colors.green;
+    final boxColor = color ?? Colors.green.shade300;
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -588,6 +568,8 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
       ),
     );
   }
+  
+
 
   Widget _buildCardItem({
     required String name,

@@ -529,7 +529,7 @@ class _VisaRequirementState extends State<VisaRequirement> {
                 const SizedBox(width: 8),
                 const Expanded(
                   child: Text(
-                    'Avoid unofficial agents or websites claiming to "fast-track" visas — they often charge inflated fees or provide outdated information.',
+                    'Avoid unofficial agents or websites claiming to "fast-track" visas, They often charge inflated fees or provide outdated information.',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.black87,
