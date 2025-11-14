@@ -267,7 +267,7 @@ class _MoneyAndAtmState extends State<MoneyAndAtm> {
         const Divider(height: 1),
         const SizedBox(height: 16),
 
-        _buildSectionHeader('💳 Travel & Prepaid Cards'),
+        _buildSectionHeader('Travel & Prepaid Cards'),
         const SizedBox(height: 12),
 
         _buildCardItem(
