@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:she_roams_bali/page_switch/switch_bridge.dart';
 
-
 class FrontPage extends StatelessWidget {
   const FrontPage({super.key});
 
@@ -13,11 +12,10 @@ class FrontPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background1.png'),
+            image: AssetImage('assets/images/cover.png'),
             fit: BoxFit.cover,
           ),
         ),
-
         child: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
@@ -25,12 +23,11 @@ class FrontPage extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: 40),
-                  
 
                   // Logo
                   SizedBox(
-                    width: 150,
-                    height: 150,
+                    width: 130,
+                    height: 130,
                     child: SvgPicture.asset(
                       'assets/images/Logo.svg',
                       fit: BoxFit.contain,
@@ -40,143 +37,156 @@ class FrontPage extends StatelessWidget {
                   //This is the Main Title
                   Text(
                     'SheRoams',
-                    style: GoogleFonts.roboto(
-                      fontSize: 45,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w800,
+                    style: TextStyle(
+                      fontFamily: 'Rossten',
+                      fontSize: 40,
                     ),
                   ),
 
                   Text(
                     'B A L I',
                     style: GoogleFonts.inter(
-                      fontSize: 30,
+                      fontSize: 20,
                       color: Colors.black,
-                      fontWeight: FontWeight.w400,
                     ),
                   ),
 
                   SizedBox(height: 14),
                   // Subtitle
                   Text(
-                    '"Travel boldly.Roam freely."',
+                    '"Travel Boldly. Roam Freely"',
                     style: GoogleFonts.inter(
-                      fontSize: 20,
+                      fontSize: 14,
                       color: Colors.black87,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
 
-                  SizedBox(height: 24),
+                  SizedBox(height:60),
 
-
-
-                  // Weather placeholders 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.wb_sunny, color: Colors.orange, size: 28),
-                      SizedBox(width: 8),
-                      Text(
-                        '27° Partly cloudy (place holder)',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(height: 20),
-
-
-
-                  // Action Buttons for the three main features
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _buildActionButton(
-                        icon: Icons.flight,
-                        label: 'Plan My\nTrip',
-                        color: Color(0xFFf9537d),
-                        onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const MainPage(),
-                            ),
-                          );
-                        },
-                      ),
-                      _buildActionButton(
-                        icon: Icons.chat_bubble_rounded,
-                        label: 'Ask\nSari AI',
-                        color: Color(0xFFec2972),
-                        onTap: () {},
-                      ),
-                      _buildActionButton(
-                        icon: Icons.place,
-                        label: 'Explore\nMap',
-                        color: Color(0xFFfe7346),
-                        onTap: () {},
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 32),
-
-
-
-
-                  // Trending Card placeholder
+                  // Wave separator with icons
                   Container(
                     width: double.infinity,
                     padding: EdgeInsets.all(24),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(24),
+                      color: Colors.white.withValues(alpha: .2),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: .2),
+                        width: 2,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildWaveIcon(Icons.flight, 'Explore'),
+                        Container(width: 2, height: 40, color: Color(0xFF172c47)),
+                        _buildWaveIcon(Icons.place, 'Experience'),
+                        Container(width: 2, height: 40, color: Color(0xFF172c47)),
+                        _buildWaveIcon(Icons.shield, 'Escape'),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 24),
+
+                  // Info Card
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(24),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: .2),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: .2),
+                        width: 2,
+                      ),
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Trending This Week',
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.black,
+                          'For Wandering Women',
+                          style: GoogleFonts.nunito(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87,
                           ),
                         ),
-                        SizedBox(height: 12),
+                        SizedBox(height: 6),
                         Text(
-                          'Top 5 brunch spots to try 🥞 Apr 22',
-                          style: TextStyle(
-                            fontSize: 18,
+                          'SheRoams Bali is your trusted travel companion—built for women, by women. All listings are verified, safe, and locally loved',
+                          style: GoogleFonts.inter(
+
+                            fontSize: 14,
                             color: Colors.black87,
-                            fontWeight: FontWeight.w400,
+                            height: 1.6,
+                          
                           ),
+                          textAlign: TextAlign.justify,
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 24),
 
+                  SizedBox(height: 20),
 
-
-                  // Description Text
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      'SheRoams Bali is your trusted travel companion—built for women, by women. All listings are verified, safe, and locally loved',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xFF1A1A1A),
-                        height: 1.5,
-                        fontWeight: FontWeight.w500,
+                  // Action Buttons
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildActionButton(
+                        label: 'Login',
+                        onTap: () {
+                          // TODO: Navigate to login page
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Login feature coming soon'),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        },
                       ),
-                      textAlign: TextAlign.center,
+
+                      SizedBox(width: 55),
+
+                      _buildActionButton(
+                        label: 'Sign Up',
+                        onTap: () {
+                          // TODO: Navigate to sign up page
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Sign Up feature coming soon'),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 10),
+
+                  // Continue as Guest button
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MainPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Continue as Guest',
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
+
                   SizedBox(height: 40),
                 ],
               ),
@@ -188,44 +198,59 @@ class FrontPage extends StatelessWidget {
   }
 
 
+  // Helper widget to build wave icon with label
+  Widget _buildWaveIcon(IconData icon, String label) {
+    return Column(
+      children: [
+        Icon(
+          icon,
+          size: 40,
+          color: Color(0xFF172c47),
+        ),
+        SizedBox(height: 10),
+        Text(
+          label,
+          style: GoogleFonts.inter(
+            fontSize: 13,
+            
+            color: Colors.black87,
+          ),
+        ),
+      ],
+    );
+  }
 
 
-
-
-
-// this functions handles the action buttons 
-
+  // Helper widget to build action button
   Widget _buildActionButton({
-    required IconData icon,
     required String label,
     required VoidCallback onTap,
-    Color? color,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 105,
-        height: 120,
+        width: 140,
+        height: 50,
         decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 40, color: Colors.white),
-            SizedBox(height: 8),
-            Text(
-              label,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-                height: 1.2,
-              ),
+          color: Color(0xFF2C2C2C),
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: .2),
+              blurRadius: 8,
+              offset: Offset(0, 4),
             ),
           ],
+        ),
+        child: Center(
+          child: Text(
+            label,
+            style: GoogleFonts.inter(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );

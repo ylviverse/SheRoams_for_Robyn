@@ -37,3 +37,23 @@ flutter:
     - assets/slider/1.png
     - assets/slider/2.png
     - assets/slider/3.png
+    - assets/images/cover.png
+
+
+  fonts:
+    - family: Festive
+      fonts:
+        - asset: assets/fonts/Festive-Regular.ttf
+          weight: 400
+
+    - family: DancingScript
+      fonts:
+        - asset: assets/fonts/DancingScript-Regular.ttf
+          weight: 400
+    
+    - family: Rossten
+      fonts:
+        - asset: assets/fonts/ROSSTEN.ttf
+          weight: 400
+
+   
