@@ -64,12 +64,12 @@ class _LoginPageState extends State<LoginPage> {
                               child: Icon(
                                 Icons.arrow_back_ios_new,
                                 color: Colors.black87,
-                                size: 18,
+                                size: 19,
                               ),
                             ),
                           ),
                           
-                          // Logo placeholder - replace with your logo
+
                           SizedBox(
                             width: 40,
                             height: 40,              
@@ -103,38 +103,41 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 80),
 
                       // Email input
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Colors.black87,
-                              width: 1.5,
-                            ),
-                          ),
-                        ),
+                      SizedBox(
+                        width: 400,
                         child: Row(
                           children: [
                             Icon(
                               Icons.email_outlined,
                               color: Colors.black87,
-                              size: 20,
+                              size: 22,
                             ),
                             SizedBox(width: 16),
                             Expanded(
-                              child: TextField(
-                                controller: _emailController,
-                                decoration: InputDecoration(
-                                  hintText: 'enter your email',
-                                  hintStyle: GoogleFonts.inter(
-                                    color: Colors.grey[600],
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Colors.black87,
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                ),
+                                child: TextField(
+                                  controller: _emailController,
+                                  decoration: InputDecoration(
+                                    hintText: 'enter your email',
+                                    hintStyle: GoogleFonts.inter(
+                                      color: Colors.grey[600],
+                                      fontSize: 16,
+                                    ),
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.symmetric(vertical: 12),
+                                  ),
+                                  style: GoogleFonts.inter(
+                                    color: Colors.black87,
                                     fontSize: 16,
                                   ),
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 12),
-                                ),
-                                style: GoogleFonts.inter(
-                                  color: Colors.black87,
-                                  fontSize: 16,
                                 ),
                               ),
                             ),
@@ -145,61 +148,70 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 32),
 
                       // Password input
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Colors.black87,
-                              width: 1.5,
-                            ),
-                          ),
-                        ),
+                      SizedBox(
+                        width: 400,
                         child: Row(
                           children: [
                             Icon(
                               Icons.lock_outline,
                               color: Colors.black87,
-                              size: 20,
+                              size: 22,
                             ),
                             SizedBox(width: 16),
                             Expanded(
-                              child: TextField(
-                                controller: _passwordController,
-                                obscureText: _obscurePassword,
-                                decoration: InputDecoration(
-                                  hintText: 'enter your password',
-                                  hintStyle: GoogleFonts.inter(
-                                    color: Colors.grey[600],
-                                    fontSize: 16,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Colors.black87,
+                                      width: 1.5,
+                                    ),
                                   ),
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 8),
                                 ),
-                                style: GoogleFonts.inter(
-                                  color: Colors.black87,
-                                  fontSize: 16,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextField(
+                                        controller: _passwordController,
+                                        obscureText: _obscurePassword,
+                                        decoration: InputDecoration(
+                                          hintText: 'enter your password',
+                                          hintStyle: GoogleFonts.inter(
+                                            color: Colors.grey[600],
+                                            fontSize: 16,
+                                          ),
+                                          border: InputBorder.none,
+                                          contentPadding: EdgeInsets.symmetric(vertical: 8),
+                                        ),
+                                        style: GoogleFonts.inter(
+                                          color: Colors.black87,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          _obscurePassword = !_obscurePassword;
+                                        });
+                                      },
+                                      child: Icon(
+                                        _obscurePassword
+                                            ? Icons.visibility_off_outlined
+                                            : Icons.visibility_outlined,
+                                        color: Colors.black87,
+                                        size: 24,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  _obscurePassword = !_obscurePassword;
-                                });
-                              },
-                              child: Icon(
-                                _obscurePassword
-                                    ? Icons.visibility_off_outlined
-                                    : Icons.visibility_outlined,
-                                color: Colors.black87,
-                                size: 24,
                               ),
                             ),
                           ],
                         ),
                       ),
 
-                      SizedBox(height: 16),
+                      SizedBox(height: 14),
 
                       // Forgot password
                       Align(
@@ -221,7 +233,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
 
-                      SizedBox(height: 60),
+                      SizedBox(height: 45),
 
                       // Login button
                       GestureDetector(
