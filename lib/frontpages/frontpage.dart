@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:she_roams_bali/auth_pages/login_page.dart';
 import 'package:she_roams_bali/page_switch/switch_bridge.dart';
 
 class FrontPage extends StatelessWidget {
@@ -137,11 +138,10 @@ class FrontPage extends StatelessWidget {
                       _buildActionButton(
                         label: 'Login',
                         onTap: () {
-                          // TODO: Navigate to login page
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Login feature coming soon'),
-                              duration: Duration(seconds: 2),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
                             ),
                           );
                         },

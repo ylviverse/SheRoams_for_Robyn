@@ -38,6 +38,7 @@ flutter:
     - assets/slider/2.png
     - assets/slider/3.png
     - assets/images/cover.png
+    - assets/images/login_cover.png
 
 
   fonts:
