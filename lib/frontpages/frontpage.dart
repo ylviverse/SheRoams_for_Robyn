@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +16,7 @@ class FrontPage extends StatelessWidget {
           
           Positioned.fill(
             child: Image.asset(
-              'assets/images/cover.png',
+              'assets/images/final.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -74,7 +75,7 @@ class FrontPage extends StatelessWidget {
                       width: double.infinity,
                       padding: EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: .2),
+                        color: Colors.white.withValues(alpha: .1),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
                           color: Colors.white.withValues(alpha: .3),
@@ -86,9 +87,9 @@ class FrontPage extends StatelessWidget {
                         children: [
                           _buildWaveIcon(Icons.flight, 'Explore'),
                           Container(width: 2, height: 40, color: Color(0xFF172c47)),
-                          _buildWaveIcon(Icons.place, 'Experience'),
+                          _buildWaveIcon(CupertinoIcons.sparkles, 'Experience'),
                           Container(width: 2, height: 40, color: Color(0xFF172c47)),
-                          _buildWaveIcon(Icons.airport_shuttle, 'Escape'),
+                          _buildWaveIcon(Icons.place, 'Escape'),
                         ],
                       ),
                     ),
@@ -100,7 +101,7 @@ class FrontPage extends StatelessWidget {
                       width: double.infinity,
                       padding: EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: .2),
+                        color: Colors.white.withValues(alpha: .1),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
                           color: Colors.white.withValues(alpha: .3),
@@ -114,7 +115,7 @@ class FrontPage extends StatelessWidget {
                             style: GoogleFonts.nunito(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black87,
+                              color: Colors.black,
                             ),
                           ),
                           SizedBox(height: 6),
@@ -122,7 +123,7 @@ class FrontPage extends StatelessWidget {
                             'SheRoams Bali is your trusted travel companion—built for women, by women. All listings are verified, safe, and locally loved',
                             style: GoogleFonts.inter(
                               fontSize: 14,
-                              color: Colors.black87,
+                              color: Colors.black,
                               height: 1.6,
                             ),
                             textAlign: TextAlign.justify,
@@ -164,7 +165,7 @@ class FrontPage extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(height: 10),
+                    SizedBox(height: 8),
 
                     // Continue as Guest button
                     TextButton(

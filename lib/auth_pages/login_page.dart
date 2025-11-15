@@ -91,8 +91,8 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.only(left: 10.0),
                         child: Text(
                           'WELCOME BACK!',
-                          style: GoogleFonts.inter(
-                            fontSize: 20,
+                          style: GoogleFonts.poppins(
+                            fontSize: 23,
                             fontWeight: FontWeight.w700,
                             color: Colors.black87,
                             letterSpacing: 1,
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Row(
                           children: [
                             Icon(
-                              Icons.email_outlined,
+                              Icons.email,
                               color: Colors.black87,
                               size: 22,
                             ),
@@ -153,9 +153,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: Row(
                           children: [
                             Icon(
-                              Icons.lock_outline,
+                              Icons.lock,
                               color: Colors.black87,
-                              size: 22,
+                              size: 23,
                             ),
                             SizedBox(width: 16),
                             Expanded(

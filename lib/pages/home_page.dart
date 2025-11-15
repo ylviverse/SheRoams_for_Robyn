@@ -57,7 +57,7 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            backgroundColor:  Color(0xFFF7A5A5),
+            backgroundColor:  Color(0xFFffc9b3),
             expandedHeight: 180.0,
             pinned: true,
             floating: true,
@@ -215,8 +215,8 @@ class Homepage extends StatelessWidget {
           // Action when FAB is pressed
           
         },
-        backgroundColor: const Color(0xFFF7A5A5),
-        child: const Icon(CupertinoIcons.chat_bubble, color: Color(0xFF1A2A4F)),
+        backgroundColor: const Color(0xFFffc9b3),
+        child: const Icon(CupertinoIcons.chat_bubble, color: Colors.black),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       

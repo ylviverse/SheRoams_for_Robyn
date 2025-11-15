@@ -39,6 +39,9 @@ flutter:
     - assets/slider/3.png
     - assets/images/cover.png
     - assets/images/login_cover.png
+    - assets/images/front.png
+    - assets/images/final.png
+    - assets/images/final1.png
 
 
   fonts:
