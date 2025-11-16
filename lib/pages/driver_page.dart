@@ -11,7 +11,7 @@ class DriverPage extends StatelessWidget {
       drawer: const AppDrawer(),
        appBar: AppBar(
         title: const Text('Explore Drivers'),
-        backgroundColor: const Color(0xFFF7A5A5), 
+        backgroundColor: const Color(0xFFffcad4), 
         
       ),
       body: Column(

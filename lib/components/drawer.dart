@@ -16,15 +16,15 @@ class AppDrawer extends StatelessWidget {
               backgroundColor: Colors.white,
               child: Text("Y", style: TextStyle(fontSize: 40.0, color: Color(0xFF1A2A4F))),
             ),
-            decoration: BoxDecoration(color: Color(0xFFF7A5A5)),
+            decoration: BoxDecoration(color: Color(0xFF9d8189)),
           ),
           ListTile(
-            leading: const Icon(Icons.account_circle),
+            leading: const Icon(Icons.account_circle_outlined),
             title: const Text('Profile'),
             onTap: () => Navigator.pop(context),
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: const Icon(Icons.settings_outlined),
             title: const Text('Settings'),
             onTap: () => Navigator.pop(context),
           ),

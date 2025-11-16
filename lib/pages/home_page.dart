@@ -57,7 +57,7 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            backgroundColor:  Color(0xFFffc9b3),
+            backgroundColor:  Color(0xFFffcad4),
             expandedHeight: 180.0,
             pinned: true,
             floating: true,
@@ -139,21 +139,6 @@ class Homepage extends StatelessWidget {
 
 
 
-                  // Search Bar to be implemented, to be connected to a search function
-                  // TextField(
-                  //   decoration: InputDecoration(
-                  //     hintText: 'Search',
-                  //     prefixIcon: const Icon(Icons.search),
-                  //     filled: true,
-                  //     fillColor: Colors.grey[200],
-                  //     border: OutlineInputBorder(
-                  //       borderRadius: BorderRadius.circular(12),
-                  //       borderSide: BorderSide.none,
-                  //     ),
-                  //   ),
-                  // ),
-                  // const SizedBox(height: 15),
-
 
 
 
@@ -215,7 +200,7 @@ class Homepage extends StatelessWidget {
           // Action when FAB is pressed
           
         },
-        backgroundColor: const Color(0xFFffc9b3),
+        backgroundColor: const Color(0xFFffcad4),
         child: const Icon(CupertinoIcons.chat_bubble, color: Colors.black),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
