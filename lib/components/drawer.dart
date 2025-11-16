@@ -10,13 +10,14 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           const UserAccountsDrawerHeader(
-            accountName: Text("Your Name"),
-            accountEmail: Text("your.email@example.com"),
+
+            accountName: Text("Your Name", style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold), ),
+            accountEmail: Text("your.email@example.com", style: TextStyle(color: Colors.black),),
             currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Text("Y", style: TextStyle(fontSize: 40.0, color: Color(0xFF1A2A4F))),
+              backgroundColor: Colors.white24,
+              child: Icon(Icons.person, size: 50, color: Colors.black),
             ),
-            decoration: BoxDecoration(color: Color(0xFF9d8189)),
+            decoration: BoxDecoration(color: Color(0xFFffcad4)),
           ),
           ListTile(
             leading: const Icon(Icons.account_circle_outlined),

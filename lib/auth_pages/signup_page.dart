@@ -334,7 +334,7 @@ class _SignupPageState extends State<SignupPage> {
                       // Sign Up button
                       GestureDetector(
                         onTap: () {
-                          // TODO: Add signup functionality
+                          // missing: Implement sign up logic
                         },
                         child: Container(
                           width: double.infinity,
