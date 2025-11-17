@@ -121,7 +121,7 @@ class FrontPage extends StatelessWidget {
                           ),
                           SizedBox(height: 6),
                           Text(
-                            'SheRoams Bali is your trusted travel companion—built for women, by women. All listings are verified, safe, and locally loved',
+                            'SheRoams Bali is your trusted travel companion built for women, by women. All listings are verified, safe, and locally loved',
                             style: GoogleFonts.inter(
                               fontSize: 14,
                               color: Colors.black,
@@ -232,11 +232,15 @@ class FrontPage extends StatelessWidget {
         width: 140,
         height: 50,
         decoration: BoxDecoration(
-          color: Color(0xFF2C2C2C),
+          color: Colors.white.withValues(alpha: .2),//(0xFF2C2C2C),
           borderRadius: BorderRadius.circular(18),
+          border: Border.all(
+            color: Colors.white.withValues(alpha: .2),
+            width: 2,
+          ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: .2),
+              color: Colors.pink.withValues(alpha: .2),
               blurRadius: 8,
               offset: Offset(0, 4),
             ),
