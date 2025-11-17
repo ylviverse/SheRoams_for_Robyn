@@ -61,7 +61,7 @@ class FrontPage extends StatelessWidget {
                     SizedBox(height: 14),
                     // Subtitle
                     Text(
-                      '"Travel Boldly. Roam Freely"',
+                      '"Travel Like a Goddess"',
                       style: GoogleFonts.inter(
                         fontSize: 14,
                         color: Colors.black87,

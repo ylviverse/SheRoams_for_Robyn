@@ -219,7 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            // TODO: Navigate to forgot password
+                            // onpress action
                           },
                           child: Text(
                             'Forgot Password?',
@@ -239,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                       // Login button
                       GestureDetector(
                         onTap: () {
-                          // TODO: Add login functionality
+                          // missing onpress action
                         },
                         child: Container(
                           width: double.infinity,

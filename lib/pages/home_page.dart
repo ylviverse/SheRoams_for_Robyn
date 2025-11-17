@@ -108,7 +108,7 @@ class Homepage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Plan Like a Goddess',
+                    'Travel Like a Goddess',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.grey,
