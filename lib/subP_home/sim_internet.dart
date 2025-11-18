@@ -10,7 +10,10 @@ class SimInternet extends StatefulWidget {
 }
 
 class _SimInternetState extends State<SimInternet> {
+
   String _selectedCategory = 'Physical';
+
+  final Set<String> _expandedProviders = {};
   
   final Map<String, List<Map<String, String>>> _providers = {
     'Physical': [
@@ -53,6 +56,8 @@ class _SimInternetState extends State<SimInternet> {
 
 
 
+
+    //eSIM Providers
 
     'eSIM': [
       {
@@ -106,21 +111,139 @@ class _SimInternetState extends State<SimInternet> {
         
         'link': 'https://jetpacglobal.com/pages/affiliates',
       },
+
+      {
+        'name': 'Saily by NordVPN',
+        'description': 'Strong privacy-focused eSIM from Nord; fast setup',
+        'coverage': 'Global',
+        'rating': '4.7',
+        'link': 'https://saily.com/affiliate',
+      },
+
+      {
+        'name': 'ZenSim',
+        'description': 'Smooth onboarding; praised for good connection quality in Bali region',
+        'coverage': 'ASIA - PACIFIC',
+        'rating': '4.6',
+        'link': 'https://zensim.co/affiliate-program',
+      },
+
+      {
+        'name': 'KeepGo',
+        'description': 'Unique lifetime data balance model; ideal for repeat travellers',
+        'coverage': 'Global - Lifetime Data SIMs',
+        'rating': '4.6',
+        'link': 'https://partners.keepgo.com',
+      },
+
+      {
+        'name': 'Flexiroam',
+        'description': 'Popular in Southeast Asia; strong regional coverage, especially Bali ',
+        'coverage': 'ASIA - GLOBAL',
+        'rating': '4.5',
+        'link': 'https://www.flexiroam.com/partner-program',
+      },
+
+      {
+        'name': 'eSIM go',
+        'description': '20% affiliate commission; business-grade infrastructure; solid reviews',
+        'coverage': ' GLOBAL',
+        'rating': '4.5',
+        'link': 'https://esimgo.com/product/industries/affiliates/',
+      },
+
+      {
+        'name': 'Ubigi',
+        'description': 'Easy in-app activation; supports both data and voice',
+        'coverage': 'ASIA - GLOBAL',
+        'rating': '4.5',
+        'link': 'https://cellulardata.ubigi.com/pro/join-our-affiliate-program/',
+      },
+
+      {
+        'name': 'Ubigi',
+        'description': 'Easy in-app activation; supports both data and voice',
+        'coverage': 'ASIA - GLOBAL',
+        'rating': '4.5',
+        'link': 'https://cellulardata.ubigi.com/pro/join-our-affiliate-program/',
+      },
+
+      {
+        'name': 'SimOptions',
+        'description': 'Reliable global reseller; highly rated for convenience and value ',
+        'coverage': 'Global and regional travel bundles',
+        'rating': '4.7',
+        'link': 'https://www.simoptions.com/affiliate-program/',
+      },
+
+      {
+        'name': 'BreezeSim',
+        'description': 'Up to 20% affiliate commissions; new but growing provider',
+        'coverage': 'GLOBAL - 150+ countries',
+        'rating': '4.4',
+        'link': 'https://breezesim.com/pages/become-an-affiliate',
+      },
+
+      {
+        'name': 'TravelSim',
+        'description': 'Well-known EU-based SIM provider; strong value for long trips',
+        'coverage': 'Global (135+ countries)',
+        'rating': '4.4',
+        'link': 'https://www.travelsim.com/become-a-partner',
+      },
+
+      {
+        'name': 'easySim Global',
+        'description': 'Good data reliability; 24/7 chat support',
+        'coverage': 'Global (180+ destinations)',
+        'rating': '4.4',
+        'link': 'https://www.easysim.global/partners',
+      },
+
+      {
+        'name': 'eSIM.sm',
+        'description': 'Affordable, reliable, and quick customer support',
+        'coverage': 'Global (multi-region)',
+        'rating': '4.6',
+        'link': 'hhttps://esim.sm/en/affiliate',
+      },
+
+      {
+        'name': 'Roamless',
+        'description': 'Great UX; automatic top-up; solid reviews for consistent speeds ',
+        'coverage': 'Global',
+        'rating': '4.6',
+        'link': 'https://roamless.com/affiliate-program',
+      },
+
     ],
   };
 
-  Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Could not open link')),
-        );
-      }
-    }
-  }
 
-  @override
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this is the url launcher for  link
+ Future<void> _launchURL(String url) async {
+  final Uri uri = Uri.parse(url);
+  await launchUrl(uri, mode: LaunchMode.externalApplication);
+}
+
+
+
+
+  @override 
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
@@ -200,7 +323,7 @@ class _SimInternetState extends State<SimInternet> {
               
                   link: provider['link']!,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 14),
               ],
             );
           }),
@@ -245,6 +368,9 @@ class _SimInternetState extends State<SimInternet> {
     );
   }
 
+
+
+//this is the category container of Physical and eSIM
 Widget _buildCategoryButton(String category) {
   final bool isSelected = _selectedCategory == category;
   return GestureDetector(
@@ -257,7 +383,7 @@ Widget _buildCategoryButton(String category) {
       padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         color: isSelected ? 
-        Color (0xFFffcad4)
+        Color (0xFFffcad4).withValues(alpha: .5)
         : Colors.transparent,
         borderRadius: BorderRadius.circular(9),
         border: isSelected
@@ -273,13 +399,19 @@ Widget _buildCategoryButton(String category) {
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: isSelected ? Colors.black : Colors.grey[600],
+          color: isSelected ? Colors.black
+          : Colors.grey[600],
         ),
       ),
     ),
   );
 }
 
+
+
+
+
+  //Provider Widget
   Widget _buildProviderCard({
     required String name,
     required String description,
@@ -287,8 +419,9 @@ Widget _buildCategoryButton(String category) {
     required String rating,
     required String link,
   }) {
+    final bool isExpanded = _expandedProviders.contains(name);
+    
     return Container(
-      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -302,108 +435,158 @@ Widget _buildCategoryButton(String category) {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Icon(
-                _selectedCategory == 'Physical' 
-                    ? Icons.sim_card 
-                    : Icons.phone_iphone,
-                color: Colors.grey,
-                size: 24,
-              ),
-            ],
-          ),
           
-          const SizedBox(height: 8),
-          
-          // Trust Rating & Reviews
-          Row(
-            children: [
-              Icon(Icons.star, color: Colors.amber[700], size: 18),
-              const SizedBox(width: 4),
-              Text(
-                rating,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-             
-              
-            ],
-          ),
-          
-          const SizedBox(height: 12),
-          
-          Text(
-            description,
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[700],
-              height: 1.4,
-            ),
-          ),
-          
-          const SizedBox(height: 12),
-          
-
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.black.withValues(alpha: .1),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Color(0xFFAAC0AF)),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.signal_cellular_alt, color: Colors.green[700], size: 18),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    coverage,
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.green[900],
-                      fontWeight: FontWeight.w500,
+          InkWell(
+            onTap: () {
+              setState(() {
+                if (isExpanded) {
+                  _expandedProviders.remove(name);
+                } else {
+                  _expandedProviders.add(name);
+                }
+              });
+            },
+            borderRadius: BorderRadius.circular(12),
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  // Icon
+                  Icon(
+                    _selectedCategory == 'Physical' 
+                        ? Icons.sim_card 
+                        : Icons.phone_iphone,
+                    color: Colors.green.withValues(alpha: .7),
+                    size: 24,
+                  ),
+                  const SizedBox(width: 12),
+                  
+                  // Name and Rating
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          name,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Icon(Icons.star, color: Colors.amber[700], size: 16),
+                            const SizedBox(width: 4),
+                            Text(
+                              rating,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          
-          const SizedBox(height: 16),
-          
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton.icon(
-              onPressed: () => _launchURL(link),
-              icon: const Icon(Icons.open_in_new, size: 18),
-              label: const Text('Learn More'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue.withValues(alpha: .5),//(0xFFFFC4C4),
-                foregroundColor: Colors.black,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
+                  
+                  // Expand/Collapse Icon
+                  Icon(
+                    isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                    color: Colors.grey[600],
+                    size: 28,
+                  ),
+                ],
               ),
             ),
           ),
+          
+          // Expanded Content
+          if (isExpanded)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Divider(height: 1),
+                  const SizedBox(height: 12),
+                  
+                  Text(
+                    description,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[700],
+                      height: 1.4,
+                    ),
+                  ),
+                  
+                  const SizedBox(height: 12),
+                  
+                  // Coverage Info
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Color(0xFFAAC0AF)),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.signal_cellular_alt, color: Colors.green[700], size: 18),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            coverage,
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.green[900],
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  
+                  const SizedBox(height: 16),
+                  
+                  // Learn More Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: () => _launchURL(link),
+                      icon: const Icon(Icons.open_in_new, size: 18),
+                      label: const Text('Learn More'),
+                      
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFEDD2E0).withValues(alpha: 0.5),
+                        foregroundColor: Colors.black,
+                        elevation: 0,
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedSuperellipseBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
   }
+}
+
+
+
+
+
+
+
 
   Widget _buildTipItem(String text) {
     return Padding(
@@ -430,4 +613,3 @@ Widget _buildCategoryButton(String category) {
       ),
     );
   }
-}

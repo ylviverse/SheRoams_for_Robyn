@@ -49,7 +49,7 @@ class Homepage extends StatelessWidget {
                   onTap: () => Scaffold.of(context).openDrawer(),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.2),
+                      color: Colors.black.withValues(alpha: 0.4),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(Icons.menu, color: Colors.white),
@@ -57,7 +57,12 @@ class Homepage extends StatelessWidget {
                 ),
               ),
             ),
-            backgroundColor:  Color(0xFFffcad4),
+          
+            backgroundColor: const Color(0xFFF5F5F5),
+            toolbarHeight: 50,
+            scrolledUnderElevation: 0,
+            surfaceTintColor: Colors.transparent,
+            elevation: 0,
             expandedHeight: 180.0,
             pinned: true,
             floating: true,
@@ -195,31 +200,18 @@ class Homepage extends StatelessWidget {
 
       // Floating Action Button
       floatingActionButton: FloatingActionButton(
-        elevation: 2,
+        elevation: 8,
         onPressed: () {
           // Action when FAB is pressed
           
         },
-        backgroundColor: const Color(0xFFffcad4),
+        backgroundColor:  Color(0xFFFFFFFF).withValues(alpha: 0.5),
         child: const Icon(CupertinoIcons.chat_bubble, color: Colors.black),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      
-
-
-
-
-
     );
   }
   }
-
-
-
-
-
-
-
 
 
 

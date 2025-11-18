@@ -40,7 +40,7 @@ class BottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOutCubic,
-              tabBackgroundColor: const Color(0xFFffcad4),
+              tabBackgroundColor: const Color(0xFFffcad4).withValues(alpha: 0.5),
               color: Colors.grey,
               tabs: const [
                 GButton(
