@@ -11,6 +11,8 @@ class CultureHeritage extends StatefulWidget {
 class _CultureHeritageState extends State<CultureHeritage> {
   String? expandedCategory;
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,7 +164,7 @@ class _CultureHeritageState extends State<CultureHeritage> {
                 color: const Color(0xFFF7A5A5).withValues(alpha: .2),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(icon, color: const Color(0xFFF7A5A5), size: 24),
+              child: Icon(icon, color:  Colors.black.withValues(alpha: .9), size: 24),
             ),
             title: Text(
               title,
@@ -381,7 +383,7 @@ class _CultureHeritageState extends State<CultureHeritage> {
     );
   }
 
-  // Updated bullet point widget with proper alignment
+
   Widget _buildBulletPoint(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
@@ -488,6 +490,11 @@ class _CultureHeritageState extends State<CultureHeritage> {
     );
   }
 
+
+
+
+
+
   Widget _buildInfoCard({
     required IconData icon,
     required String title,
@@ -516,7 +523,7 @@ class _CultureHeritageState extends State<CultureHeritage> {
               color: const Color(0xFFF7A5A5).withValues(alpha: .2),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, color: const Color(0xFFF7A5A5), size: 24),
+            child: Icon(icon, color: Colors.black.withValues(alpha: .9), size: 24),
           ),
           const SizedBox(width: 16),
           Expanded(

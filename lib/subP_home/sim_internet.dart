@@ -383,7 +383,7 @@ Widget _buildCategoryButton(String category) {
       padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         color: isSelected ? 
-        Color (0xFFffcad4).withValues(alpha: .5)
+        Color(0xFFffcad4).withValues(alpha: .5)
         : Colors.transparent,
         borderRadius: BorderRadius.circular(9),
         border: isSelected
@@ -457,7 +457,7 @@ Widget _buildCategoryButton(String category) {
                     _selectedCategory == 'Physical' 
                         ? Icons.sim_card 
                         : Icons.phone_iphone,
-                    color: Colors.green.withValues(alpha: .7),
+                    color: Color(0xFF16425B),
                     size: 24,
                   ),
                   const SizedBox(width: 12),
@@ -530,18 +530,18 @@ Widget _buildCategoryButton(String category) {
                     decoration: BoxDecoration(
                       
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Color(0xFFAAC0AF)),
+                      border: Border.all(color: Color(0xFF16425B)),
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.signal_cellular_alt, color: Colors.green[700], size: 18),
+                        Icon(Icons.signal_cellular_alt, color: Color(0xFF16425B), size: 18),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
                             coverage,
                             style: TextStyle(
                               fontSize: 13,
-                              color: Colors.green[900],
+                              color: Color(0xFF16425B),
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -561,8 +561,8 @@ Widget _buildCategoryButton(String category) {
                       label: const Text('Learn More'),
                       
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFFEDD2E0).withValues(alpha: 0.5),
-                        foregroundColor: Colors.black,
+                        backgroundColor: Color(0xFF16425B),
+                        foregroundColor: Colors.white,
                         elevation: 0,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         shape: RoundedSuperellipseBorder(

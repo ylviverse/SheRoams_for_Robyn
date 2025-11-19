@@ -31,7 +31,7 @@ class BottomNavBar extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
             child: GNav(
-              rippleColor: const Color(0xFFfe7c67),
+              rippleColor: const Color(0xFFfe7c67).withValues(alpha: 0.4),
               hoverColor: const Color(0xFFffac83),
               gap: 6, 
               activeColor: Colors.black,
@@ -49,7 +49,7 @@ class BottomNavBar extends StatelessWidget {
                 ),
                 GButton(
                   icon: CupertinoIcons.car_detailed,
-                  text: 'RIDE',
+                  text: 'TRAVEL',
                 ),
                 GButton(
                   icon: CupertinoIcons.house_alt_fill,

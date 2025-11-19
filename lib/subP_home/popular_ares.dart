@@ -11,6 +11,10 @@ class PopularAres extends StatefulWidget {
 class _PopularAresState extends State<PopularAres> {
   String selectedTab = 'Recommended'; 
 
+
+
+
+  //list of recommended areas - to be changed with asynchronous data fetching
   final List<Map<String, String>> recommendedAreas = const [
     {
       'title': 'Ubud',
@@ -63,203 +67,278 @@ class _PopularAresState extends State<PopularAres> {
     },
   ];
 
-  @override
-  Widget build(BuildContext context) {
-    
-    final currentAreas = selectedTab == 'Recommended' ? recommendedAreas : nearbyAreas;
 
-    return Scaffold(
+
+
+
+
+
+
+
+
+
+
+
+
+//Build Method
+ @override
+Widget build(BuildContext context) {
+  final currentAreas = selectedTab == 'Recommended' ? recommendedAreas : nearbyAreas;
+
+  return Scaffold(
+    backgroundColor: Color(0xFFF9F8F6),
+    appBar: AppBar(
+      scrolledUnderElevation: 0,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      title: Text('Popular Areas', style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black)),
       backgroundColor: Color(0xFFF9F8F6),
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        title: Text('Popular Areas', style: TextStyle(fontWeight: FontWeight.w500,color:  Colors.black),),
-        backgroundColor:  Color(0xFFF9F8F6),//(0xFFF7A5A5),
-        leading: IconButton(
-          icon: const Icon(CupertinoIcons.back, color: Colors.black,),
-          onPressed: () => Navigator.pop(context),
+      leading: IconButton(
+        icon: const Icon(CupertinoIcons.back, color: Colors.black),
+        onPressed: () => Navigator.pop(context),
+      ),
+    ),
+    body: CustomScrollView(
+      slivers: [
+        // Tab Selection Row
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: _buildTabButton('Recommended'),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: _buildTabButton('Nearby'),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        // List of areas - Changed from Grid to List
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final area = currentAreas[index];
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: _buildAreaCard(
+                    context,
+                    title: area['title']!,
+                    subtitle: area['subtitle']!,
+                    imagePath: area['image']!,
+                  ),
+                );
+              },
+              childCount: currentAreas.length,
+            ),
+          ),
+        ),
+        const SliverToBoxAdapter(
+          child: SizedBox(height: 16),
+        ),
+      ],
+    ),
+  );
+}
+
+
+// Helper to build each tab button
+Widget _buildTabButton(String label) {
+  final bool isSelected = selectedTab == label;
+  
+  return GestureDetector(
+    onTap: () {
+      setState(() {
+        selectedTab = label;
+      });
+    },
+    child: Container(
+      padding: const EdgeInsets.symmetric(vertical: 14),
+      decoration: BoxDecoration(
+        color: isSelected ? const Color(0xFFffcad4).withValues(alpha: 0.5) 
+        : Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: isSelected ? Color(0xFFFFC4C4) : Colors.grey[300]!,
+          width: .6,
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          // Tab Selection Row
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+      child: Text(
+        label,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+          color: isSelected ? Colors.black : Colors.grey[600],
+        ),
+      ),
+    ),
+  );
+}
+
+
+
+// Helper to build each area card
+Widget _buildAreaCard(
+  BuildContext context, {
+  required String title,
+  required String subtitle,
+  required String imagePath,
+}) {
+  return GestureDetector(
+    onTap: () {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Viewing details for $title'),
+          duration: const Duration(seconds: 1),
+        ),
+      );
+    },
+    child: Container(
+      height: 410, // Large card height
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: .2),
+            spreadRadius: 1,
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Stack(
+        children: [
+          // Background Image
+          Positioned.fill(
+            child: Image.network(
+              'https://picsum.photos/seed/$title/800/1000',
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Container(
+                  color: Colors.grey[300],
+                  child: const Icon(Icons.image, size: 80, color: Colors.grey),
+                );
+              },
+            ),
+          ),
+          
+          // Gradient Overlay
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withValues(alpha: .75),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          
+          // Top Location Badge
+          Positioned(
+            top: 20,
+            left: 20,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: .8),
+                borderRadius: BorderRadius.circular(24),
+              ),
               child: Row(
-                children: [
-                  Expanded(
-                    child: _buildTabButton('Recommended'),
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Icon(Icons.location_on, size: 18, color: Colors.black),
+                  SizedBox(width: 6),
+                  Text(
+                    'Bali',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                    ),
                   ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _buildTabButton('Nearby'),
+                  SizedBox(width: 4),
+                  Text(
+                    'Indonesia',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.black54,
+                    ),
                   ),
                 ],
               ),
             ),
           ),
-
-          // Grid of areas
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            sliver: SliverGrid(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                childAspectRatio: 0.75,
-              ),
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  final area = currentAreas[index];
-                  return _buildAreaCard(
-                    context,
-                    title: area['title']!,
-                    subtitle: area['subtitle']!,
-                    imagePath: area['image']!,
-                  );
-                },
-                childCount: currentAreas.length,
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(height: 16),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Tab button widget
-  Widget _buildTabButton(String title) {
-    final bool isSelected = selectedTab == title;
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedTab = title;
-        });
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFefa355) : Colors.transparent,//grey[200],
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: isSelected ? const Color(0xFFefa355) : Colors.grey.shade300,
-          ),
-        ),
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              color: isSelected ? Colors.white : Colors.black87,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAreaCard(
-    BuildContext context, {
-    required String title,
-    required String subtitle,
-    required String imagePath,
-  }) {
-    return GestureDetector(
-      onTap: () {
-        
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Viewing details for $title'),
-            duration: const Duration(seconds: 1),
-          ),
-        );
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withValues(alpha: .2),
-              spreadRadius: 1,
-              blurRadius: 2,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Image (using placeholder for now )
-            Image.network(
-              'https://picsum.photos/seed/$title/200/300', 
-              height: 120,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  height: 120,
-                  
-                  color: Colors.grey[300],
-                  child: const Icon(Icons.image, size: 50, color: Colors.grey),
-                );
-              },
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
+          
+         
+          
+          // Bottom Content
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.all(24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
                     style: const TextStyle(
+                      fontSize: 28,
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 8),
                   Text(
                     subtitle,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey[600],
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.white70,
+                      height: 1.4,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.location_on,
-                        size: 14,
-                        color: Color(0xFFefa355),
+                  const SizedBox(height: 16),
+
+                  // Arrow button only
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: .8),
+                        shape: BoxShape.circle,
                       ),
-                      SizedBox(width: 4),
-                      Text(
-                        'Bali, Indonesia',
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: Colors.grey,
-                        ),
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        size: 20,
+                        color:  Colors.black,
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 }
