@@ -494,7 +494,6 @@ class _CultureHeritageState extends State<CultureHeritage> {
 
 
 
-
   Widget _buildInfoCard({
     required IconData icon,
     required String title,

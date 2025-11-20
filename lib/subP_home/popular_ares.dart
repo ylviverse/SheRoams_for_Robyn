@@ -19,32 +19,32 @@ class _PopularAresState extends State<PopularAres> {
     {
       'title': 'Ubud',
       'subtitle': 'Rice Terraces, Art Galleries, Wellness',
-      'image': 'assets/areas/ubud.jpg', 
+      'image': 'assets/areas/ubud.jpeg', 
     },
     {
       'title': 'Seminyak',
       'subtitle': 'Designer Boutiques,Beach, Sunset Dining',
-      'image': 'assets/areas/seminyak.jpg',
+      'image': 'assets/areas/seminyak.jpeg',
     },
     {
       'title': 'Canggu',
       'subtitle': 'Surf Scene, Trendy Cafes, Yoga Studios',
-      'image': 'assets/areas/canggu.jpg',
+      'image': 'assets/areas/canggu.jpeg',
     },
     {
       'title': 'Uluwatu',
       'subtitle': 'Clifftop views, Surf Spots, Luxury Villas',
-      'image': 'assets/areas/uluwatu.jpg',
+      'image': 'assets/areas/uluwatu.jpeg',
     },
     {
       'title': 'Sanur',
       'subtitle': 'Calm beaches and relaxation',
-      'image': 'assets/areas/sanur.jpg',
+      'image': 'assets/areas/sanur.jpeg',
     },
     {
       'title': 'Nusa Dua',
       'subtitle': 'Luxury resorts and golf',
-      'image': 'assets/areas/nusa_dua.jpg',
+      'image': 'assets/areas/nusa_dua.jpeg',
     },
   ];
   
@@ -53,17 +53,17 @@ class _PopularAresState extends State<PopularAres> {
     {
       'title': 'Uluwatu',
       'subtitle': 'Clifftop views, Surf Spots, Luxury Villas',
-      'image': 'assets/areas/uluwatu.jpg',
+      'image': 'assets/areas/uluwatu.jpeg',
     },
     {
       'title': 'Sanur',
       'subtitle': 'Calm beaches and relaxation',
-      'image': 'assets/areas/sanur.jpg',
+      'image': 'assets/areas/sanur.jpeg',
     },
     {
       'title': 'Nusa Dua',
       'subtitle': 'Luxury resorts and golf',
-      'image': 'assets/areas/nusa_dua.jpg',
+      'image': 'assets/areas/nusa_dua.jpeg',
     },
   ];
 
@@ -217,19 +217,31 @@ Widget _buildAreaCard(
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
+          
           // Background Image
-          Positioned.fill(
-            child: Image.network(
-              'https://picsum.photos/seed/$title/800/1000',
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  color: Colors.grey[300],
-                  child: const Icon(Icons.image, size: 80, color: Colors.grey),
-                );
-              },
-            ),
+        Positioned.fill(
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return Container(
+                color: Colors.grey[300],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.image, size: 80, color: Colors.grey),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Image not found: $imagePath',
+                      style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
+        ),
           
           // Gradient Overlay
           Positioned.fill(

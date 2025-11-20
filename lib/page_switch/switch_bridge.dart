@@ -7,7 +7,6 @@ import 'package:she_roams_bali/pages/stay_page.dart';
 
 
 
-
 //handles the switching between main pages using bottom navigation bar so that the state of each page is preserved
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

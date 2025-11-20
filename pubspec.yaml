@@ -42,6 +42,13 @@ flutter:
     - assets/images/front.png
     - assets/images/final.png
     - assets/images/final1.png
+    - assets/images/logo1.png
+    - assets/areas/ubud.jpeg
+    - assets/areas/seminyak.jpeg
+    - assets/areas/canggu.jpeg
+    - assets/areas/sanur.jpeg
+    - assets/areas/nusa_dua.jpeg
+    - assets/areas/uluwatu.jpeg
 
 
   fonts:

@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:she_roams_bali/auth_pages/login_page.dart';
 import 'package:she_roams_bali/auth_pages/signup_page.dart';
 import 'package:she_roams_bali/page_switch/switch_bridge.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FrontPage extends StatelessWidget {
   const FrontPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,7 @@ class FrontPage extends StatelessWidget {
                     SizedBox(height: 40),
 
                     // Logo
+            
                     SizedBox(
                       width: 130,
                       height: 130,
@@ -232,7 +234,7 @@ class FrontPage extends StatelessWidget {
         width: 140,
         height: 50,
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: .2),//(0xFF2C2C2C),
+          color: Color(0xFF2C2C2C),
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
             color: Colors.white.withValues(alpha: .2),
