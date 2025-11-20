@@ -161,10 +161,10 @@ class _CultureHeritageState extends State<CultureHeritage> {
             leading: Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: const Color(0xFFF7A5A5).withValues(alpha: .2),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(icon, color:  Colors.black.withValues(alpha: .9), size: 24),
+              child: Icon(icon, color:  Colors.black.withValues(alpha: .8), size: 28),
             ),
             title: Text(
               title,
@@ -519,7 +519,7 @@ class _CultureHeritageState extends State<CultureHeritage> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: const Color(0xFFF7A5A5).withValues(alpha: .2),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Icon(icon, color: Colors.black.withValues(alpha: .9), size: 24),

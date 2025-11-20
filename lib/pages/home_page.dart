@@ -140,27 +140,12 @@ class Homepage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
 
-
-
-
-
-
-
-
-
                   // Category List
 
                   _buildCategoryItem(context, 
                   icon: Icons.place, 
                   title: 'Popular Areas', 
                   subtitle: 'Areas to explore in Bali'),
-
-                  _buildCategoryItem(
-                    context,
-                    icon: Icons.person_2, 
-                    title: 'Culture & Heritage',
-                    subtitle: 'Batik, gamelan, painting, dance, and carving.',
-                  ),
 
                   _buildCategoryItem(context,
                   icon: Icons.airplane_ticket, 
@@ -176,6 +161,13 @@ class Homepage extends StatelessWidget {
                   icon: Icons.wb_sunny, 
                   title: 'Weather & Seasons', 
                   subtitle: "When's the best time to visit Bali" ),
+
+                  _buildCategoryItem(
+                    context,
+                    icon: Icons.person_2, 
+                    title: 'Culture & Heritage',
+                    subtitle: 'Batik, gamelan, painting, dance, and carving.',
+                  ),
 
                   _buildCategoryItem(context, 
                   icon: Icons.sim_card_alert_sharp, 
