@@ -16,7 +16,7 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
   String? errorMessage;
   
   // Converter state
-  final TextEditingController _amountController = TextEditingController(text: '100');
+  final TextEditingController _amountController = TextEditingController(text: '0');
   String _fromCurrency = 'USD';
   double _convertedAmount = 0;
 
@@ -181,13 +181,13 @@ class _CurrencyExchangeState extends State<CurrencyExchange> {
                         child: ElevatedButton(
                           onPressed: _convertCurrency,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFF7A5A5),
-                            foregroundColor: Colors.white,
+                            backgroundColor: const Color(0xFFF7A5A5).withValues(alpha: .6),
+                            foregroundColor: Colors.black,
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(20),
                             ),
-                            elevation: 2,
+                            elevation: 0,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

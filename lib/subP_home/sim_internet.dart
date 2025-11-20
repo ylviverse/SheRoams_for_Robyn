@@ -285,23 +285,13 @@ class _SimInternetState extends State<SimInternet> {
           // Category Selector
           Container(
             padding: const EdgeInsets.all(4),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: .5),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withValues(alpha: .2),
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
+           
             child: Row(
               children: [
                 Expanded(
                   child: _buildCategoryButton('Physical'),
                 ),
+                const SizedBox(width: 12), 
                 Expanded(
                   child: _buildCategoryButton('eSIM'),
                 ),
@@ -382,14 +372,13 @@ Widget _buildCategoryButton(String category) {
     child: Container(
       padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
-        color: isSelected ? 
-        Color(0xFFffcad4).withValues(alpha: .5)
-        : Colors.transparent,
-        borderRadius: BorderRadius.circular(9),
+        color: isSelected ? const Color(0xFFffcad4).withValues(alpha: 0.6) 
+        : Colors.white,
+        borderRadius: BorderRadius.circular(24),
         border: isSelected
             ? Border.all(
-                color: Colors.transparent,
-                width: 1.5,
+                color: Color(0xFFffcad4),
+                
               )
             : null,
       ),
@@ -398,9 +387,9 @@ Widget _buildCategoryButton(String category) {
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
           color: isSelected ? Colors.black
-          : Colors.grey[600],
+          : Colors.grey[500],
         ),
       ),
     ),

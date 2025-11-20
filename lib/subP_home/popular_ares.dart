@@ -161,11 +161,11 @@ Widget _buildTabButton(String label) {
     child: Container(
       padding: const EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
-        color: isSelected ? const Color(0xFFffcad4).withValues(alpha: 0.5) 
+        color: isSelected ? const Color(0xFFffcad4).withValues(alpha: 0.6) 
         : Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: isSelected ? Color(0xFFFFC4C4) : Colors.grey[300]!,
+          color: isSelected ? Color(0xFFFFC4C4) : Colors.grey[200]!,
           width: .6,
         ),
       ),
@@ -173,9 +173,10 @@ Widget _buildTabButton(String label) {
         label,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 15,
+          fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: isSelected ? Colors.black : Colors.grey[600],
+          color: isSelected ? Colors.black.withValues(alpha: .9) 
+          : Colors.grey[600],
         ),
       ),
     ),
@@ -297,7 +298,7 @@ Widget _buildAreaCard(
                   Text(
                     title,
                     style: const TextStyle(
-                      fontSize: 28,
+                      fontSize: 29,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                       letterSpacing: 0.5,
@@ -307,7 +308,7 @@ Widget _buildAreaCard(
                   Text(
                     subtitle,
                     style: const TextStyle(
-                      fontSize: 15,
+                      fontSize: 16,
                       color: Colors.white70,
                       height: 1.4,
                     ),
