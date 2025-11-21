@@ -9,13 +9,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 class FrontPage extends StatelessWidget {
   const FrontPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
-          
+        children: [ 
           Positioned.fill(
             child: Image.asset(
               'assets/images/final.png',
