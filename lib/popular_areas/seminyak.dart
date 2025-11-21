@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class UbudDetail extends StatelessWidget {
-  const UbudDetail({super.key});
+class SeminyakDetail extends StatelessWidget {
+  const SeminyakDetail({super.key});
 
   // Unified Theme Colors
   final Color _accentColor = const Color(0xFFffcad4);
@@ -21,14 +21,14 @@ class UbudDetail extends StatelessWidget {
       backgroundColor: const Color(0xFFF9F8F6),
       // Floating Action Button for the most important conversion action
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _launchURL('https://www.booking.com/city/id/ubud.html'),
+        onPressed: () => _launchURL('https://www.booking.com/city/id/seminyak.html'),
         backgroundColor: _primaryText,
         label: const Text('Book Stay', style: TextStyle(color: Colors.white)),
         icon: const Icon(Icons.hotel, color: Colors.white),
       ),
       body: CustomScrollView(
         slivers: [
-          // 1. Sliver App Bar (Kept largely the same, it was good)
+          // 1. Sliver App Bar
           SliverAppBar(
             expandedHeight: 280,
             pinned: true,
@@ -46,7 +46,7 @@ class UbudDetail extends StatelessWidget {
                 fit: StackFit.expand,
                 children: [
                   Image.asset(
-                    'assets/areas/ubud.jpeg',
+                    'assets/areas/seminyak.jpeg',
                     fit: BoxFit.cover,
                   ),
                   Container(
@@ -70,7 +70,7 @@ class UbudDetail extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Ubud',
+                          'Seminyak',
                           style: TextStyle(
                             fontSize: 36,
                             fontWeight: FontWeight.bold,
@@ -83,14 +83,14 @@ class UbudDetail extends StatelessWidget {
                             Icon(Icons.location_on, color: Colors.white70, size: 16),
                             SizedBox(width: 4),
                             Text(
-                              'Central Bali, Indonesia',
+                              'Southwest Bali, Indonesia',
                               style: TextStyle(color: Colors.white70, fontSize: 16),
                             ),
                             Spacer(),
                             Icon(Icons.star, color: Colors.amber, size: 20),
                             SizedBox(width: 4),
                             Text(
-                              '4.8',
+                              '4.7',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -118,7 +118,7 @@ class UbudDetail extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'The cultural heart of Bali, known for rice terraces, traditional arts, and wellness.',
+                    'The upscale beach town of Bali, famous for designer boutiques, world-class dining, and stunning sunsets.',
                     style: TextStyle(fontSize: 16, height: 1.5, color: _secondaryText),
                   ),
                 ),
@@ -128,11 +128,11 @@ class UbudDetail extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     children: [
-                      _buildTag('Yoga'),
-                      _buildTag('Art'),
-                      _buildTag('Nature'),
-                      _buildTag('Nomads'),
-                      _buildTag('Photo'),
+                      _buildTag('Beach'),
+                      _buildTag('Shopping'),
+                      _buildTag('Dining'),
+                      _buildTag('Nightlife'),
+                      _buildTag('Luxury'),
                     ],
                   ),
                 ),
@@ -140,40 +140,40 @@ class UbudDetail extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 // SECTION: Horizontal Attractions (Carousel)
-                _buildSectionTitle('Must-Visit Attractions', Icons.place_outlined),
+                _buildSectionTitle('Must-Visit Spots', Icons.place_outlined),
                 SizedBox(
-                  height: 160, // Fixed height for horizontal cards
+                  height: 160,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     children: [
                       _buildHorizontalCard(
-                        title: 'Rice Terraces',
-                        subtitle: 'Tegallalang',
-                        price: '20k IDR',
-                        color: Colors.green.shade50,
-                        icon: Icons.landscape,
-                      ),
-                      _buildHorizontalCard(
-                        title: 'Monkey Forest',
-                        subtitle: 'Sanctuary',
-                        price: '80k IDR',
-                        color: Colors.brown.shade50,
-                        icon: Icons.pets,
-                      ),
-                      _buildHorizontalCard(
-                        title: 'Royal Palace',
-                        subtitle: 'Central Ubud',
-                        price: 'Free',
-                        color: Colors.orange.shade50,
-                        icon: Icons.account_balance,
-                      ),
-                      _buildHorizontalCard(
-                        title: 'Ridge Walk',
-                        subtitle: 'Campuhan',
+                        title: 'Double Six Beach',
+                        subtitle: 'Sunset & Surf',
                         price: 'Free',
                         color: Colors.blue.shade50,
-                        icon: Icons.hiking,
+                        icon: Icons.beach_access,
+                      ),
+                      _buildHorizontalCard(
+                        title: 'Eat Street',
+                        subtitle: 'Petitenget',
+                        price: 'Dining',
+                        color: Colors.orange.shade50,
+                        icon: Icons.restaurant,
+                      ),
+                      _buildHorizontalCard(
+                        title: 'Potato Head',
+                        subtitle: 'Beach Club',
+                        price: '300k+ IDR',
+                        color: Colors.pink.shade50,
+                        icon: Icons.pool,
+                      ),
+                      _buildHorizontalCard(
+                        title: 'Seminyak Square',
+                        subtitle: 'Shopping',
+                        price: 'Free Entry',
+                        color: Colors.purple.shade50,
+                        icon: Icons.shopping_bag,
                       ),
                     ],
                   ),
@@ -182,14 +182,16 @@ class UbudDetail extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 // SECTION: Where to Eat (Compact List)
-                _buildSectionTitle('Culinary Spots', Icons.restaurant_menu),
+                _buildSectionTitle('Top Restaurants', Icons.restaurant_menu),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
-                      _buildCompactListTile('Locavore', 'Fine Dining • \$\$\$\$', 'Book weeks ahead', Icons.wine_bar),
-                      _buildCompactListTile('Clear Cafe', 'Healthy Vegan • \$\$', 'Try smoothie bowls', Icons.eco),
-                      _buildCompactListTile('Warung Biah Biah', 'Local • \$', 'Budget friendly', Icons.rice_bowl),
+                      _buildCompactListTile('Merah Putih', 'Modern Indonesian • \$\$\$', 'Stunning interior', Icons.local_dining),
+                      _buildCompactListTile('Motel Mexicola', 'Mexican Fiesta • \$\$', 'Vibrant atmosphere', Icons.celebration),
+                      _buildCompactListTile('La Lucciola', 'Italian Beachfront • \$\$\$', 'Sunset views', Icons.wine_bar),
+                      _buildCompactListTile('Sisterfields', 'Brunch Cafe • \$\$', 'Instagrammable', Icons.coffee),
+                      _buildCompactListTile('Warung Made', 'Local • \$', 'Authentic Balinese', Icons.rice_bowl),
                     ],
                   ),
                 ),
@@ -203,11 +205,11 @@ class UbudDetail extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     children: [
-                      _buildActivityCard('Yoga', '150k+', Colors.purple.shade50),
-                      _buildActivityCard('Cooking', '400k+', Colors.orange.shade50),
-                      _buildActivityCard('Rafting', '350k+', Colors.blue.shade50),
-                      _buildActivityCard('Dance', '75k+', Colors.red.shade50),
-                      _buildActivityCard('Art', '200k+', Colors.yellow.shade50),
+                      _buildActivityCard('Surfing', '150k+', Colors.blue.shade50),
+                      _buildActivityCard('Shopping', 'Varies', Colors.pink.shade50),
+                      _buildActivityCard('Beach Clubs', '300k+', Colors.orange.shade50),
+                      _buildActivityCard('Spa', '250k+', Colors.purple.shade50),
+                      _buildActivityCard('Sunset', 'Free', Colors.amber.shade50),
                     ],
                   ),
                 ),
@@ -220,11 +222,69 @@ class UbudDetail extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
-                      _buildBudgetRow('Budget', '\$10-30', 'Hostels & Guesthouses'),
+                      _buildBudgetRow('Budget', '\$20-50', 'Hostels & Guesthouses'),
                       const Divider(),
-                      _buildBudgetRow('Mid-Range', '\$40-100', 'Boutique Villas'),
+                      _buildBudgetRow('Mid-Range', '\$60-150', 'Boutique Hotels & Villas'),
                       const Divider(),
-                      _buildBudgetRow('Luxury', '\$150+', 'Resorts & Private Pools'),
+                      _buildBudgetRow('Luxury', '\$200+', 'Beach Resorts & 5-Star'),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 32),
+
+                // SECTION: Beach Clubs
+                _buildSectionTitle('Beach Clubs', Icons.beach_access),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      _buildCompactListTile('Potato Head', 'Iconic • Pool & Beach', '300k min spend', Icons.pool),
+                      _buildCompactListTile('Ku De Ta', 'Upscale • DJ Sets', '250k min spend', Icons.music_note),
+                      _buildCompactListTile('Mrs Sippy', 'Salt Pool • Party Vibe', '200k min spend', Icons.local_bar),
+                      _buildCompactListTile('Finns Beach Club', 'Family Friendly • Slides', '150k entry', Icons.water_drop),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 32),
+
+                // SECTION: Shopping Areas
+                _buildSectionTitle('Shopping Spots', Icons.shopping_cart),
+                SizedBox(
+                  height: 160,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    children: [
+                      _buildHorizontalCard(
+                        title: 'Seminyak Square',
+                        subtitle: 'Mall & Shops',
+                        price: 'Mid-Range',
+                        color: Colors.teal.shade50,
+                        icon: Icons.storefront,
+                      ),
+                      _buildHorizontalCard(
+                        title: 'Jalan Laksmana',
+                        subtitle: 'Eat Street',
+                        price: 'Boutiques',
+                        color: Colors.indigo.shade50,
+                        icon: Icons.shopping_bag,
+                      ),
+                      _buildHorizontalCard(
+                        title: 'Seminyak Village',
+                        subtitle: 'Luxury Mall',
+                        price: 'High-End',
+                        color: Colors.deepPurple.shade50,
+                        icon: Icons.diamond,
+                      ),
+                      _buildHorizontalCard(
+                        title: 'Jalan Raya',
+                        subtitle: 'Main Street',
+                        price: 'Mixed',
+                        color: Colors.lime.shade50,
+                        icon: Icons.local_mall,
+                      ),
                     ],
                   ),
                 ),
@@ -232,7 +292,6 @@ class UbudDetail extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 // SECTION: Essentials (Collapsible Expansion Tiles)
-                // This saves a huge amount of vertical space
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
@@ -245,9 +304,10 @@ class UbudDetail extends StatelessWidget {
                         icon: Icons.directions_bike,
                         content: Column(
                           children: [
-                            _buildTransportItem('🛵 Scooter', '50k-80k/day'),
-                            _buildTransportItem('🚗 Driver', '500k/day'),
-                            _buildTransportItem('🚕 Grab/Gojek', 'Available'),
+                            _buildTransportItem('🛵 Scooter', '60k-100k/day'),
+                            _buildTransportItem('🚗 Private Driver', '600k/day'),
+                            _buildTransportItem('🚕 Grab/Gojek', 'Widely available'),
+                            _buildTransportItem('🚶 Walking', 'Main areas walkable'),
                           ],
                         ),
                       ),
@@ -257,10 +317,12 @@ class UbudDetail extends StatelessWidget {
                         content: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
-                            Text('• Best time: Apr-Oct (dry season)'),
-                            Text('• Dress modestly for temples'),
-                            Text('• Don\'t look monkeys in the eye'),
-                            Text('• Bargain at markets'),
+                            Text('• Beach clubs require min. spend (200k-500k)'),
+                            Text('• Book restaurants ahead on weekends'),
+                            Text('• Traffic heavy 5-8pm on main roads'),
+                            Text('• Bargain at boutiques (start 30% lower)'),
+                            Text('• Sunset is 6-6:30pm year-round'),
+                            Text('• Many shops close Nyepi Day (Balinese New Year)'),
                           ],
                         ),
                       ),
@@ -268,7 +330,28 @@ class UbudDetail extends StatelessWidget {
                         title: 'Health & Safety',
                         icon: Icons.medical_services_outlined,
                         content: const Text(
-                            'Very safe. Drink bottled water only. Use mosquito repellent (dengue risk). Ubud Clinic is available for emergencies.'
+                            'Very safe area with strong police presence. BIMC Hospital Seminyak for emergencies. Watch belongings at beach. Strong currents - swim between flags only. Sunscreen essential (SPF 50+).'
+                        ),
+                      ),
+                      _buildExpansionSection(
+                        title: 'Best Time to Visit',
+                        icon: Icons.calendar_today,
+                        content: const Text(
+                            'Apr-Oct: Dry season, best beach weather. Dec-Mar: Rainy season but still warm. Avoid mid-July to Aug (peak crowds). Shoulder seasons (Apr-May, Sep-Oct) offer best balance of weather and prices.'
+                        ),
+                      ),
+                      _buildExpansionSection(
+                        title: 'Nightlife',
+                        icon: Icons.nightlife,
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text('• Red Carpet - VIP clubbing experience'),
+                            Text('• La Favela - Eclectic jungle club'),
+                            Text('• Mirror Lounge - Rooftop cocktails'),
+                            Text('• Jenja - Live music venue'),
+                            Text('• Most clubs open 10pm-4am'),
+                          ],
                         ),
                       ),
                     ],
@@ -438,28 +521,28 @@ class UbudDetail extends StatelessWidget {
     );
   }
 
- Widget _buildExpansionSection({required String title, required IconData icon, required Widget content}) {
-  return Container(
-    margin: const EdgeInsets.only(bottom: 12),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12),
-      border: Border.all(color: Colors.grey.shade200),
-    ),
-    clipBehavior: Clip.antiAlias, // Add this to clip the corners properly
-    child: ExpansionTile(
-      leading: Icon(icon, color: _accentColor),
-      title: Text(title, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-      textColor: Colors.black,
-      iconColor: Colors.black,
-      backgroundColor: Colors.white, // Add this to prevent color change on expand
-      collapsedBackgroundColor: Colors.white, // Add this for consistency
-      childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-      children: [content],
-    ),
-  );
-}
+  Widget _buildExpansionSection({required String title, required IconData icon, required Widget content}) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade200),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: ExpansionTile(
+        leading: Icon(icon, color: _accentColor),
+        title: Text(title, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+        textColor: Colors.black,
+        iconColor: Colors.black,
+        backgroundColor: Colors.white,
+        collapsedBackgroundColor: Colors.white,
+        childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+        children: [content],
+      ),
+    );
+  }
 
   Widget _buildTransportItem(String title, String price) {
     return Padding(
